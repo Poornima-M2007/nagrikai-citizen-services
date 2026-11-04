@@ -1,31 +1,46 @@
-import { useEffect, useState } from "react";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/lib/auth";
 
-// Device-local saved schemes. Will move to the saved_schemes table once accounts are connected.
-const KEY = "nagrikai.savedSchemes";
-const EVENT = "nagrikai:saved-changed";
-
-function read(): string[] {
-  try {
-    return JSON.parse(window.localStorage.getItem(KEY) ?? "[]");
-  } catch {
-    return [];
-  }
-}
-
+// Saved schemes are stored per account in the saved_schemes table (RLS: own rows only).
 export function useSavedSchemes() {
-  const [ids, setIds] = useState<string[]>([]);
-  useEffect(() => {
-    const sync = () => setIds(read());
-    sync();
-    window.addEventListener(EVENT, sync);
-    return () => window.removeEventListener(EVENT, sync);
-  }, []);
-  const toggle = (id: string) => {
-    const cur = read();
-    const next = cur.includes(id) ? cur.filter((x) => x !== id) : [...cur, id];
-    window.localStorage.setItem(KEY, JSON.stringify(next));
-    window.dispatchEvent(new Event(EVENT));
-    return next.includes(id);
+  const { user, loading: authLoading } = useAuth();
+  const qc = useQueryClient();
+  const key = ["saved-schemes", user?.id];
+
+  const query = useQuery({
+    queryKey: key,
+    enabled: !!user,
+    queryFn: async () => {
+      const { data, error } = await supabase.from("saved_schemes").select("scheme_id").order("created_at", { ascending: false });
+      if (error) throw error;
+      return data.map((r) => r.scheme_id);
+    },
+  });
+  const ids = query.data ?? [];
+
+  const mutation = useMutation({
+    mutationFn: async (id: string) => {
+      if (!user) throw new Error("Please log in to save schemes.");
+      if (ids.includes(id)) {
+        const { error } = await supabase.from("saved_schemes").delete().eq("scheme_id", id);
+        if (error) throw error;
+        return false;
+      }
+      const { error } = await supabase.from("saved_schemes").insert({ user_id: user.id, scheme_id: id });
+      if (error) throw error;
+      return true;
+    },
+    onSettled: () => qc.invalidateQueries({ queryKey: key }),
+  });
+
+  return {
+    ids,
+    signedIn: !!user,
+    loading: authLoading || (!!user && query.isLoading),
+    error: query.error as Error | null,
+    pending: mutation.isPending,
+    toggle: (id: string) => mutation.mutateAsync(id),
+    isSaved: (id: string) => ids.includes(id),
   };
-  return { ids, toggle, isSaved: (id: string) => ids.includes(id) };
 }
