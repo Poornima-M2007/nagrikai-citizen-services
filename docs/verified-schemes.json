@@ -1,0 +1,137 @@
+[
+  {
+    "id": "pmkisan",
+    "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+    "level": "Central",
+    "state": null,
+    "category": "Agriculture",
+    "beneficiary": "Eligible landholding farmer families",
+    "description": "Central income support for eligible landholding farmer families, subject to land-record verification and scheme exclusions.",
+    "eligibility_summary": "Landholding farmer families with cultivable land, subject to exclusion criteria and verification.",
+    "benefits": "₹6,000 per eligible family per year in three equal instalments through direct benefit transfer.",
+    "eligibility": [
+      "Family comprises husband, wife and minor children.",
+      "Cultivable landholding must be recorded in the family’s name, subject to scheme rules.",
+      "Institutional landholders and specified higher-income categories are excluded, including income-tax payers and specified public office holders, government employees, pensioners and practising professionals; exceptions apply as specified in the official FAQ."
+    ],
+    "documents": [
+      "Aadhaar identity details.",
+      "Bank account number and IFSC details.",
+      "Cultivable-land ownership records for State/UT verification."
+    ],
+    "application_steps": [
+      "Check current instructions on the official PM-KISAN portal.",
+      "Use the New Farmer Registration route or seek assistance from the designated local authority/CSC, where available.",
+      "Provide the requested identity, landholding and bank details; complete required e-KYC and verification. Registration does not guarantee approval or payment."
+    ],
+    "official_url": "https://pmkisan.gov.in/RegistrationFormupdated.aspx",
+    "source": "https://pmkisan.gov.in/Documents/RevisedFAQ.pdf",
+    "last_verified": "2026-11-04"
+  },
+  {
+    "id": "pmjay",
+    "name": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB PM-JAY)",
+    "level": "Central",
+    "state": null,
+    "category": "Health",
+    "beneficiary": "Eligible beneficiary families and senior citizens aged 70 years and above",
+    "description": "Health assurance for covered secondary and tertiary care hospitalisation at empanelled hospitals; not an unrestricted cash payment.",
+    "eligibility_summary": "Eligible identified beneficiary families; coverage also extends to all senior citizens aged 70 years and above irrespective of socio-economic status, under applicable rules.",
+    "benefits": "Health cover of up to ₹5 lakh per eligible family per year for covered secondary and tertiary care hospitalisation. Coverage extends to senior citizens aged 70 years and above irrespective of socio-economic status, under applicable rules.",
+    "eligibility": [
+      "For the general beneficiary route, eligibility is based on the applicable beneficiary identification criteria.",
+      "All senior citizens aged 70 years and above are eligible irrespective of socio-economic status, subject to scheme enrolment requirements."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Use the official beneficiary portal or Ayushman App, or visit an empanelled hospital or Common Service Centre.",
+      "Complete enrolment and beneficiary identification through the selected official channel.",
+      "Use an empanelled hospital for covered treatment; covered procedures and authorisation remain subject to scheme rules."
+    ],
+    "official_url": "https://beneficiary.nha.gov.in/",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2110780&lang=1&reg=3",
+    "last_verified": "2026-11-04"
+  },
+  {
+    "id": "pmay",
+    "name": "Pradhan Mantri Awas Yojana – Urban 2.0 (PMAY-U 2.0)",
+    "level": "Central",
+    "state": null,
+    "category": "Housing",
+    "beneficiary": "Eligible urban EWS, LIG and MIG households, depending on the component",
+    "description": "Urban housing support through Beneficiary Led Construction, Affordable Housing in Partnership, Affordable Rental Housing and Interest Subsidy Scheme. This record covers the urban scheme, not PMAY-Gramin.",
+    "eligibility_summary": "Eligible urban households subject to income, house-ownership, prior-benefit and component-specific conditions.",
+    "benefits": "BLC/AHP assistance up to ₹2.5 lakh for eligible EWS households, subject to the applicable funding pattern and conditions. Affordable rental housing for eligible EWS/LIG groups. Interest subsidy for eligible EWS/LIG/MIG home-loan borrowers under ISS conditions.",
+    "eligibility": [
+      "Annual household income limits: EWS up to ₹3 lakh; LIG up to ₹6 lakh; MIG up to ₹9 lakh. Component eligibility varies.",
+      "Ownership assistance is subject to the condition that the beneficiary family does not own a pucca house anywhere in India and to applicable prior housing-assistance restrictions.",
+      "BLC requires eligible EWS beneficiaries to have available land.",
+      "ISS applies to eligible loans sanctioned and disbursed on or after 1 September 2024, subject to its detailed limits.",
+      "Families that received a house under a Central, State/UT or local-government housing scheme in the preceding 20 years are not eligible, under the guidelines."
+    ],
+    "documents": [
+      "Proof of income for identification under the Interest Subsidy Scheme; other component-specific requirements must be confirmed with the implementing authority."
+    ],
+    "application_steps": [
+      "Read the official eligibility instructions and confirm the appropriate component with the urban local body or implementing agency.",
+      "Check the current application facility on the official portal or contact the urban local body. Availability is not guaranteed by this record.",
+      "Submit the required information for authority verification; submitting a form does not establish entitlement."
+    ],
+    "official_url": "https://pmaymis.gov.in/PMAYMIS2_2024/PMAY_SURVEY/EligiblityCheck.aspx",
+    "source": "https://pmay-urban.gov.in/uploads/guidelines/Operational-Guidelines-of-PMAY-U-2.pdf",
+    "last_verified": "2026-11-04"
+  },
+  {
+    "id": "pmvishwakarma",
+    "name": "PM Vishwakarma",
+    "level": "Central",
+    "state": null,
+    "category": "Livelihood and Skills",
+    "beneficiary": "Traditional artisans and craftspeople working with hands and tools in the 18 covered trades",
+    "description": "Central support for traditional artisans through recognition, skills, toolkit incentives, conditional credit and market linkages. Official scheme evidence does not guarantee that fresh registration is currently open.",
+    "eligibility_summary": "Artisans aged at least 18 working in a covered family-based traditional trade on a self-employed/unorganised-sector basis, subject to family and prior-credit restrictions.",
+    "benefits": "PM Vishwakarma certificate and ID card. Skill training with stipend of ₹500 per day. Toolkit incentive of ₹15,000 through an e-voucher. Collateral-free enterprise development loans: ₹1 lakh first tranche and ₹2 lakh second tranche at a concessional 5% interest rate, subject to training, loan-account and other tranche conditions; these are repayable loans, not grants. Digital transaction incentive of ₹1 per eligible transaction, up to 100 transactions monthly, and marketing support.",
+    "eligibility": [
+      "Minimum age 18 on the registration date.",
+      "Work with hands and tools in one of the 18 covered family-based traditional trades in the unorganised sector on a self-employment basis.",
+      "Only one member per family; family means husband, wife and unmarried children.",
+      "Applicant and family members must not be in government service.",
+      "Subject to restrictions on similar Central/State credit-based self-employment or business-development scheme loans during the previous five years; confirm applicable exceptions with the implementing authority."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Check the official portal or a Common Service Centre for current registration availability. Fresh registration being open has not been verified and is not guaranteed.",
+      "If intake is available, registration is facilitated by CSC agents on the official portal with Aadhaar biometric authentication.",
+      "Complete authority verification and required training; credit and subsequent benefits remain subject to their specific conditions."
+    ],
+    "official_url": "https://pmvishwakarma.gov.in/",
+    "source": "https://www.pib.gov.in/PressNoteDetails.aspx?ModuleId=3&NoteId=155216&lang=1&reg=48",
+    "last_verified": "2026-11-04"
+  },
+  {
+    "id": "pmyasasvi",
+    "name": "PM Young Achievers’ Scholarship Award Scheme for Vibrant India (PM-YASASVI)",
+    "level": "Central",
+    "state": null,
+    "category": "Education",
+    "beneficiary": "Eligible OBC, EBC and DNT students",
+    "description": "Government of India umbrella programme supporting education of OBC, EBC and DNT students through pre-matric, post-matric and top-class education components, with an OBC hostel-construction component. Component administration and eligibility differ; this is not one uniform scholarship.",
+    "eligibility_summary": "OBC, EBC or DNT students with annual family income up to ₹2.5 lakh, subject to the chosen component’s institution, class, selection and other rules.",
+    "benefits": "Pre-matric component: ₹4,000 annual academic allowance for eligible Class IX–X government-school students, as described in the PIB explainer. Post-matric component: academic allowances ranging from ₹5,000 to ₹20,000 according to course category, as described in the explainer. Top-class school/college components support eligible students’ educational costs subject to component limits and selection; benefits are not automatically cumulative.",
+    "eligibility": [
+      "Belong to an eligible OBC, EBC or DNT category.",
+      "Annual family income up to ₹2.5 lakh, subject to component-specific rules.",
+      "Pre-matric component covers Classes IX and X in government schools.",
+      "Post-matric and top-class components have separate course, institution and selection conditions; confirm current guidelines before applying."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Check the National Scholarship Portal and the responsible ministry/State authority for the relevant component and current academic-year notification. This record does not verify an open application window.",
+      "If the relevant application window is available, follow the notified registration and scholarship application process.",
+      "Submit the requested details for institution/authority verification and selection. Do not assume a historical entrance-test reference in the 2024 explainer is the current selection method."
+    ],
+    "official_url": "https://scholarships.gov.in/",
+    "source": "https://www.pib.gov.in/PressNoteDetails.aspx?ModuleId=3&NoteId=153359",
+    "last_verified": "2026-11-04"
+  }
+]
