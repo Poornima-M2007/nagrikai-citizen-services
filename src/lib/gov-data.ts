@@ -72,7 +72,7 @@ const mapScheme = (r: SchemeRow): DbScheme => ({
   eligibility: r.eligibility ?? [], documents: r.documents ?? [], applicationSteps: r.application_steps ?? [],
   officialUrl: officialGovernmentUrl(r.official_url), source: r.source, lastVerified: r.last_verified,
   recordType: r.record_type ?? "scheme", verificationStatus: r.verification_status ?? "unverified",
-  dataQualityNotes: r.data_quality_notes, relatedLinks: officialReferences(r.related_links),
+  dataQualityNotes: r.data_quality_notes ?? null, relatedLinks: officialReferences(r.related_links),
 });
 
 export const schemesQuery = queryOptions({
