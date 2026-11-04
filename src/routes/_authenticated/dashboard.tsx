@@ -7,7 +7,7 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { EmptyState, Notice, SampleBadge } from "@/components/common";
+import { EmptyState, Notice } from "@/components/common";
 import { schemesQuery } from "@/lib/gov-data";
 import { useSavedSchemes } from "@/lib/saved-schemes";
 import { useAuth, useSignOut } from "@/lib/auth";
