@@ -1,5 +1,9 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { AlertCircle, CalendarDays, CheckCircle2, FileText, ImageIcon, ListChecks, MessageSquare, Send, Sparkles, UploadCloud, X } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQueryClient } from "@tanstack/react-query";
+import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/lib/auth";
+import { Loader2, AlertCircle, CalendarDays, CheckCircle2, FileText, ImageIcon, ListChecks, MessageSquare, Send, Sparkles, UploadCloud, X } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -35,6 +39,10 @@ function Documents() {
   const [error, setError] = useState<string | null>(null);
   const [drag, setDrag] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
+  const { user } = useAuth();
+  const queryClient = useQueryClient();
+  const [uploading, setUploading] = useState(false);
+  const [uploaded, setUploaded] = useState(false);
 
   useEffect(() => () => { if (preview) URL.revokeObjectURL(preview); }, [preview]);
 
@@ -43,10 +51,28 @@ function Documents() {
     const err = validateDocument(f);
     if (err) { setError(err); return; }
     setError(null);
+    setUploaded(false);
     setFile(f);
     setPreview(URL.createObjectURL(f));
   };
-  const clear = () => { setFile(null); setPreview(null); setError(null); if (inputRef.current) inputRef.current.value = ""; };
+  const clear = () => { setFile(null); setPreview(null); setError(null); setUploaded(false); if (inputRef.current) inputRef.current.value = ""; };
+
+  const upload = async () => {
+    if (!file || !user) return;
+    const err = validateDocument(file);
+    if (err) { setError(err); return; }
+    setUploading(true); setError(null);
+    const ext = file.name.split(".").pop()?.toLowerCase().replace(/[^a-z0-9]/g, "") || "bin";
+    const path = `${user.id}/${crypto.randomUUID()}.${ext}`;
+    const up = await supabase.storage.from("documents").upload(path, file, { contentType: file.type, upsert: false });
+    if (up.error) { setUploading(false); setError(`Upload failed: ${up.error.message}`); return; }
+    const { error: dbErr } = await supabase.from("documents").insert({ user_id: user.id, file_name: file.name.slice(0, 200), storage_path: path, mime_type: file.type, size_bytes: file.size });
+    setUploading(false);
+    if (dbErr) { await supabase.storage.from("documents").remove([path]); setError(`Could not save document: ${dbErr.message}`); return; }
+    setUploaded(true);
+    queryClient.invalidateQueries({ queryKey: ["documents", user.id] });
+    toast.success("Document saved privately to your account");
+  };
 
   return (
     <>
@@ -81,9 +107,20 @@ function Documents() {
                 <Button variant="ghost" size="icon" onClick={clear} aria-label="Remove file"><X /></Button>
               </div>
               <div className="mt-4 space-y-2 text-sm">
-                <p className="flex items-center gap-2 text-success"><CheckCircle2 className="size-4" /> Selected and ready (kept on your device)</p>
-                <p className="flex items-center gap-2 text-muted-foreground"><AlertCircle className="size-4" /> Not uploaded or analysed — AI processing is not connected yet</p>
+                {uploaded ? (
+                  <p className="flex items-center gap-2 text-success"><CheckCircle2 className="size-4" /> Saved privately to your account</p>
+                ) : (
+                  <p className="flex items-center gap-2 text-success"><CheckCircle2 className="size-4" /> Selected and ready (kept on your device)</p>
+                )}
+                <p className="flex items-center gap-2 text-muted-foreground"><AlertCircle className="size-4" /> Not analysed — AI processing is not connected yet</p>
               </div>
+              {!uploaded && (
+                user ? (
+                  <Button variant="hero" className="mt-4" onClick={upload} disabled={uploading}>{uploading ? <Loader2 className="animate-spin" /> : <UploadCloud />} Save to my account</Button>
+                ) : (
+                  <p className="mt-4 text-sm text-muted-foreground"><Link to="/auth" className="font-medium text-accent hover:underline">Log in</Link> to store this document privately in your account.</p>
+                )
+              )}
               {preview && file.type.startsWith("image/") && <img src={preview} alt={`Preview of ${file.name}`} className="mt-4 max-h-64 w-full rounded-xl border object-contain" />}
               {preview && file.type === "application/pdf" && <a href={preview} target="_blank" rel="noopener noreferrer" className="mt-4 inline-block text-sm font-medium text-accent hover:underline">Open PDF preview</a>}
             </div>

@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useNavigate } from "@tanstack/react-router";
 import { ArrowLeft, Bookmark, BookmarkCheck, CalendarCheck, CheckCircle2, ExternalLink, FileCheck2, Info } from "lucide-react";
 import { useState } from "react";
 import { toast } from "sonner";
