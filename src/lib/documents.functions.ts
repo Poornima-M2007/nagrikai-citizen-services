@@ -10,8 +10,10 @@ export const processDocument = createServerFn({ method: "POST" }).middleware([re
   // Only result/status writes are privileged; ownership was verified through user RLS above.
   const { supabaseAdmin } = await import("@/integrations/supabase/client.server");
   const { extractDocument, explainDocument, processingError } = await import("./document-ai.server");
-  const { data: locked, error: lockError } = await supabaseAdmin.from("documents").update({ status: "extracting", processing_error: null }).eq("id", doc.id).eq("user_id", context.userId).in("status", ["uploaded", "failed", "extracted", "ready"]).select("id").maybeSingle();
-  if (lockError || !locked) return { ok: false, error: "This document is already processing. If interrupted, release it before retrying." };
+  if (doc.status === "ready") return { ok: true, error: null };
+  const { data: locked, error: lockError } = await supabaseAdmin.from("documents").update({ status: "extracting", processing_error: null }).eq("id", doc.id).eq("user_id", context.userId).in("status", ["uploaded", "failed", "extracted"]).select("id").maybeSingle();
+  if (lockError) return { ok: false, error: "Could not start processing. Your file is saved; please try again." };
+  if (!locked) return { ok: false, error: "This document is already processing. If interrupted, release it before retrying." };
   try {
     const validation = validateDocument({ type: doc.mime_type, size: doc.size_bytes });
     if (validation) throw new Error(validation);
@@ -29,7 +31,8 @@ export const processDocument = createServerFn({ method: "POST" }).middleware([re
     const stored = previous ? await supabaseAdmin.from("document_analyses").update(base).eq("id", previous.id).eq("user_id", context.userId).select("id").single() : await supabaseAdmin.from("document_analyses").insert(base).select("id").single();
     if (stored.error || !stored.data) throw new Error("Could not save extracted text privately.");
     if (!pages.some((p) => p.text.trim())) throw new Error("No readable text was found. Upload a clearer scan or photo; extraction warnings have been saved.");
-    await supabaseAdmin.from("documents").update({ status: "analysing" }).eq("id", doc.id).eq("user_id", context.userId);
+    const { error: analysisStatusError } = await supabaseAdmin.from("documents").update({ status: "analysing" }).eq("id", doc.id).eq("user_id", context.userId);
+    if (analysisStatusError) throw new Error("Text is saved, but analysis could not start. Please retry.");
     const result = await explainDocument(pages);
     const { error: saveError } = await supabaseAdmin.from("document_analyses").update({ simple_explanation: result.explanation, document_type: result.document_type, extracted_fields: result.fields, important_dates: result.dates, requirements: result.details }).eq("id", stored.data.id).eq("user_id", context.userId);
     if (saveError) throw new Error("Text was extracted, but the explanation could not be saved. Please retry.");

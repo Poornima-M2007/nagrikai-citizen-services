@@ -7,7 +7,7 @@
 - [ ] Future task (not in scope): rule-based eligibility matching.
 
 # Real document intelligence
-- [ ] Multiple private uploads with validation and per-file status.
-- [ ] Digital PDF extraction, vision OCR, explanations and grounded questions.
-- [ ] Private saved results, citizen review and complete document deletion.
-- [ ] Test digital PDF, scan, image, multiple files, missing data and invalid files; report limitations.
+- [x] Multiple private uploads with validation and per-file status.
+- [x] Digital PDF extraction, vision OCR, explanations and grounded questions.
+- [x] Private saved results, citizen review and complete document deletion.
+- [x] Test digital PDF, scan, image, multiple files, missing data and invalid files; report limitations.
