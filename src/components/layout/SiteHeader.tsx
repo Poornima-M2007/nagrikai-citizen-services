@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Globe, Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/i18n/I18nProvider";
 import { LANGUAGES, type LangCode, type TKey } from "@/i18n/translations";
@@ -46,6 +46,15 @@ function AccountButton({ onDone, className }: { onDone?: () => void; className?:
 export function SiteHeader() {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (event: KeyboardEvent) => {
+      if (event.key === "Escape") { setOpen(false); menuButton.current?.focus(); }
+    };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open]);
   const linkCls = "rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors";
   const activeCls = "text-primary bg-secondary";
 
@@ -53,7 +62,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-40 border-b bg-background/85 backdrop-blur-md">
       <div className="tricolor-bar h-1" aria-hidden />
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6">
-        <Link to="/" className="shrink-0" aria-label="NagrikAI home"><Logo /></Link>
+        <Link to="/" onClick={() => setOpen(false)} className="shrink-0" aria-label="NagrikAI home"><Logo /></Link>
         <nav className="hidden xl:flex items-center gap-0.5" aria-label="Main">
           {NAV.map((n) => (
             <Link key={n.to} to={n.to} className={linkCls} activeProps={{ className: activeCls }} activeOptions={{ exact: n.to === "/" }}>
@@ -65,13 +74,13 @@ export function SiteHeader() {
           <LanguageSelect id="lang-desktop" />
           <AccountButton />
         </div>
-        <Button variant="ghost" size="icon" className="xl:hidden" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label="Toggle menu">
+        <Button ref={menuButton} variant="ghost" size="icon" className="xl:hidden" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-controls="mobile-navigation" aria-label={t("nav.toggleMenu")}>
           {open ? <X /> : <Menu />}
         </Button>
       </div>
       {open && (
         <div className="xl:hidden border-t bg-background animate-rise">
-          <nav className="mx-auto flex max-w-7xl flex-col gap-1 p-4" aria-label="Mobile">
+          <nav id="mobile-navigation" className="mx-auto flex max-w-7xl flex-col gap-1 p-4" aria-label="Mobile">
             {NAV.map((n) => (
               <Link key={n.to} to={n.to} onClick={() => setOpen(false)} className={linkCls} activeProps={{ className: activeCls }} activeOptions={{ exact: n.to === "/" }}>
                 {t(n.key)}
