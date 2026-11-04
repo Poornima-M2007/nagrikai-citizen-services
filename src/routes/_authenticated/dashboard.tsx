@@ -5,7 +5,7 @@ import { EmptyState, Notice, SampleBadge } from "@/components/common";
 import { SAMPLE_SCHEMES } from "@/data/sample-data";
 import { useSavedSchemes } from "@/lib/saved-schemes";
 
-export const Route = createFileRoute("/dashboard")({
+export const Route = createFileRoute("/_authenticated/dashboard")({
   head: () => ({
     meta: [
       { title: "My Dashboard — NagrikAI" },
