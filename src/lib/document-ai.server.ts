@@ -30,7 +30,6 @@ export async function extractDocument(bytes: Uint8Array, mime: string, filename:
       const result = await extractText(pdf, { mergePages: false });
       pages = result.text.map((text, i) => ({ page: i + 1, text: text.trim(), method: "digital", warning: null }));
     } catch { throw new Error("This PDF is corrupted, encrypted or unreadable. Please upload an unlocked, readable copy."); }
-    finally { await pdf?.destroy(); }
   } else pages = [{ page: 1, text: "", method: "vision_ocr", warning: null }];
   const missing = pages.filter((p) => p.text.length < 20).map((p) => p.page);
   if (missing.length) {

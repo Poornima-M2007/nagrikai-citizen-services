@@ -22,7 +22,7 @@ export const Route = createFileRoute("/documents")({
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
   ] }), component: Documents,
 });
-type SelectedFile = { id: string; file: File; status: string; error?: string };
+type SelectedFile = { id: string; file: File; status: string; error?: string | undefined };
 const fmtSize = (b: number) => b < 1024 * 1024 ? `${(b / 1024).toFixed(1)} KB` : `${(b / 1024 / 1024).toFixed(2)} MB`;
 function Documents() {
   const [files, setFiles] = useState<SelectedFile[]>([]);
