@@ -50,7 +50,7 @@ function Documents() {
   };
   const run = async (id: string) => {
     setActive(id); setWorking(id); setError(null);
-    try { const result = await process({ data: { documentId: id } }); if (!result.ok) setError(result.error); }
+    try { const result = await process({ data: { documentId: id } }); if (!result.ok) setError(result.error); return result; }
     catch { setError("The request was interrupted. Your file remains saved; processing may still be running."); }
     finally { setWorking(null); await refresh(id); }
   };
@@ -66,7 +66,8 @@ function Documents() {
         if (up.error) throw new Error("Upload failed. Check your connection and retry.");
         const result = await supabase.from("documents").insert({ user_id: user.id, file_name: item.file.name.slice(0, 200), storage_path: path, mime_type: item.file.type, size_bytes: item.file.size }).select("id").single();
         if (result.error || !result.data) { await supabase.storage.from("documents").remove([path]); throw new Error("Could not save the document record. Please retry upload."); }
-        update("Saved"); await refresh(); await run(result.data.id);
+        update("Saved"); await refresh(); const processed = await run(result.data.id);
+        if (processed?.error?.includes("credits") || processed?.error?.includes("does not allow")) break;
       } catch (e) { update("Failed", e instanceof Error ? e.message : "Upload failed."); }
     }
     setBusy(false);
