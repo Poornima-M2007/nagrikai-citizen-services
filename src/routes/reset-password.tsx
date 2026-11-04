@@ -41,7 +41,7 @@ function ResetPassword() {
   const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     const r = schema.safeParse(v);
-    if (!r.success) { setErr(r.error.issues[0].message); return; }
+    if (!r.success) { setErr(r.error.issues[0]?.message ?? "Invalid input"); return; }
     setErr(null); setBusy(true);
     const { error } = await supabase.auth.updateUser({ password: r.data.password });
     setBusy(false);

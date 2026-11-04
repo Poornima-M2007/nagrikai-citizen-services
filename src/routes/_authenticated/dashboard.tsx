@@ -65,7 +65,7 @@ function ProfileForm() {
   const save = async (e: React.FormEvent) => {
     e.preventDefault();
     const r = profileSchema.safeParse(v);
-    if (!r.success) { toast.error(r.error.issues[0].message); return; }
+    if (!r.success) { toast.error(r.error.issues[0]?.message ?? "Invalid input"); return; }
     setSaving(true);
     const { error } = await supabase.from("profiles").upsert({ id: user!.id, full_name: r.data.full_name || null, preferred_language: r.data.preferred_language, state: r.data.state || null });
     setSaving(false);
