@@ -13,6 +13,6 @@
 - [x] Test digital PDF, scan, image, multiple files, missing data and invalid files; report limitations.
 
 # Focused homepage refinement
-- [ ] Refine homepage imagery, typography, service sections and footer; preserve backend and other pages.
-- [ ] Verify homepage links, authentication destinations and mobile navigation across screen sizes.
-- [ ] Report changed files and existing limitations.
+- [x] Refine homepage imagery, typography, service sections and footer; preserve backend and other pages.
+- [x] Verify homepage links, authentication destinations and mobile navigation across screen sizes.
+- [x] Report changed files and existing limitations in docs/homepage-refinement-report.md.
