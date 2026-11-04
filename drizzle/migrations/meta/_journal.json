@@ -15,6 +15,13 @@
       "when": 1793803252103,
       "tag": "0001_scheme_application_steps",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1793807403006,
+      "tag": "0002_schemes_verification_and_eligibility_rules",
+      "breakpoints": true
     }
   ]
 }

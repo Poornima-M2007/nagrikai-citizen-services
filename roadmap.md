@@ -1,6 +1,7 @@
-# Verified scheme population
-- [x] Verify five Central and five Karnataka schemes using official sources; unknown details remain unavailable.
-- [x] Insert ten records into the existing schemes table without changing the UI.
-- [x] Test finder search, category/state/level filters, details and official links; external blocks/timeouts are documented.
-- [x] Test signed-in save/remove, persistence after reload and dashboard display.
-- [x] Report all scheme sources, dates, counts and remaining limitations.
+# Scheme data audit and eligibility-matching preparation
+- [x] Audit all 10 existing scheme records against their official sources.
+- [x] Classify each record as verified / partially verified / unverified (3 / 7 / 0).
+- [x] Extend the existing schemes table with verification status, structured eligibility rules and data-quality notes (no duplicate tables, no deletions).
+- [x] Backfill structured eligibility only from source-verified facts; leave unverified records empty.
+- [x] Write the audit report (docs/scheme-eligibility-audit.md and Files copy).
+- [ ] Future task (not in scope): rule-based eligibility matching and document analysis.
