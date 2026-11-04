@@ -51,7 +51,7 @@ function Documents() {
   const run = async (id: string) => {
     setActive(id); setWorking(id); setError(null);
     try { const result = await process({ data: { documentId: id } }); if (!result.ok) setError(result.error); return result; }
-    catch { setError("The request was interrupted. Your file remains saved; processing may still be running."); }
+    catch { const message = "The request was interrupted. Your file remains saved; processing may still be running."; setError(message); return { ok: false, error: message }; }
     finally { setWorking(null); await refresh(id); }
   };
   const uploadAll = async () => {
