@@ -34,7 +34,13 @@ export const Route = createFileRoute("/schemes/$schemeId")({
 
 function SchemeDetail() {
   const { scheme: s } = Route.useLoaderData();
-  const { isSaved, toggle } = useSavedSchemes();
+  const { isSaved, toggle, signedIn, pending } = useSavedSchemes();
+  const navigate = useNavigate();
+  const onSave = async () => {
+    if (!signedIn) { toast("Please log in to save schemes"); navigate({ to: "/auth" }); return; }
+    try { const now = await toggle(s.id); toast.success(now ? "Saved to your account" : "Removed from saved"); }
+    catch (e) { toast.error(e instanceof Error ? e.message : "Could not update saved schemes"); }
+  };
   const [checked, setChecked] = useState<Record<number, boolean>>({});
   const saved = isSaved(s.id);
   const metCount = Object.values(checked).filter(Boolean).length;
@@ -48,7 +54,7 @@ function SchemeDetail() {
           <h1 className="mt-3 text-3xl font-bold text-primary md:text-4xl">{s.name}</h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">{s.description}</p>
         </div>
-        <Button variant={saved ? "teal" : "soft"} onClick={() => { const now = toggle(s.id); toast(now ? "Saved on this device" : "Removed from saved"); }}>
+        <Button variant={saved ? "teal" : "soft"} onClick={onSave} disabled={pending}>
           {saved ? <BookmarkCheck /> : <Bookmark />} {saved ? "Saved" : "Save scheme"}
         </Button>
       </div>
