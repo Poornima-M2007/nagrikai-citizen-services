@@ -82,6 +82,7 @@ function Schemes() {
                         {s.level === "Central" ? <Landmark className="size-3" /> : <MapPin className="size-3" />} {s.level === "Central" ? "Central" : s.state}
                       </span>
                       <span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">{s.category}</span>
+                      {s.recordType === "scholarship_portal" && <span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium">Scholarship portal</span>}
                     </div>
                     <h2 className="mt-4 text-lg font-semibold">{s.name}</h2>
                     <p className="mt-2 text-sm text-muted-foreground">{s.description}</p>

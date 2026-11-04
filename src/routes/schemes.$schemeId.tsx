@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/common";
 import { schemeQuery } from "@/lib/gov-data";
 import { useSavedSchemes } from "@/lib/saved-schemes";
+import { officialGovernmentUrl } from "@/lib/official-links";
 
 export const Route = createFileRoute("/schemes/$schemeId")({
   head: () => ({
@@ -49,6 +50,8 @@ function SchemeDetail() {
   };
   const saved = isSaved(s.id);
   const metCount = Object.values(checked).filter(Boolean).length;
+  const sourceUrl = officialGovernmentUrl(s.source);
+  const isPortal = s.recordType === "scholarship_portal";
 
   return (
     <div className="mx-auto max-w-5xl px-4 py-10 sm:px-6">
@@ -59,11 +62,14 @@ function SchemeDetail() {
           <div className="flex flex-wrap gap-2"><span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium">{s.level === "Central" ? "Central Government" : `${s.state} Government`}</span><span className="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">{s.category}</span><span className="rounded-full bg-secondary px-2.5 py-0.5 text-xs font-medium">{s.beneficiary}</span></div>
           <h1 className="mt-3 text-3xl font-bold text-primary md:text-4xl">{s.name}</h1>
           <p className="mt-3 max-w-2xl text-muted-foreground">{s.description}</p>
+          {isPortal && <p className="mt-2 text-sm font-medium text-accent">Scholarship portal · Multiple schemes with separate rules</p>}
         </div>
         <Button variant={saved ? "teal" : "soft"} onClick={onSave} disabled={pending}>
           {saved ? <BookmarkCheck /> : <Bookmark />} {saved ? "Remove saved scheme" : "Save scheme"}
         </Button>
       </div>
+
+      {s.verificationStatus && <div className="mt-6 text-sm text-muted-foreground"><p className="font-medium">{s.verificationStatus === "verified" ? "Verified against official sources" : s.verificationStatus === "partially_verified" ? "Partially verified" : "Pending verification"}</p>{s.dataQualityNotes && <p className="mt-1">{s.dataQualityNotes}</p>}</div>}
 
       {s.benefits && (
         <section className="mt-8 rounded-2xl border bg-card p-6 shadow-soft">
@@ -74,8 +80,8 @@ function SchemeDetail() {
 
       <div className="mt-6 grid gap-6 md:grid-cols-2">
         <section className="rounded-2xl border bg-card p-6 shadow-soft">
-          <h2 className="flex items-center gap-2 text-lg font-semibold"><CheckCircle2 className="size-5 text-accent" /> Eligibility checklist</h2>
-          <p className="mt-1 text-sm text-muted-foreground">Tick what applies to you. This is a guide, not an official decision.</p>
+          <h2 className="flex items-center gap-2 text-lg font-semibold"><CheckCircle2 className="size-5 text-accent" /> {isPortal ? "Scheme-specific eligibility" : "Eligibility checklist"}</h2>
+          {!isPortal && <p className="mt-1 text-sm text-muted-foreground">Tick what applies to you. This is a guide, not an official decision.</p>}
           {s.eligibility.length === 0 ? <p className="mt-4 text-sm text-muted-foreground">{s.eligibilitySummary ?? "See the official website for eligibility."}</p> : (
             <>
               <ul className="mt-4 space-y-2">
@@ -108,14 +114,15 @@ function SchemeDetail() {
           <ol className="mt-4 list-decimal space-y-2 pl-5 text-sm">{s.applicationSteps.map((st, i) => <li key={i}>{st}</li>)}</ol>
         )}
         <div className="mt-6 space-y-1.5 text-sm text-muted-foreground">
-          <p className="flex gap-2"><Info className="size-4 mt-0.5" /> Source: {s.source}</p>
+          <p className="flex items-start gap-2"><Info className="size-4 mt-0.5 shrink-0" />{sourceUrl ? <a href={sourceUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-accent hover:underline">Official information / source <ExternalLink className="size-3 shrink-0" /></a> : <span className="break-words">Source: {s.source}</span>}</p>
           <p className="flex gap-2"><CalendarCheck className="size-4 mt-0.5" /> Last verified: {s.lastVerified ?? "Not yet verified"}</p>
         </div>
         {s.officialUrl ? (
-          <Button asChild variant="hero" className="mt-6"><a href={s.officialUrl} target="_blank" rel="noopener noreferrer">Apply on official website <ExternalLink /></a></Button>
+          <Button asChild variant="hero" className="mt-6"><a href={s.officialUrl} target="_blank" rel="noopener noreferrer">{isPortal ? "Open scholarship application portal" : "Apply on official website"} <ExternalLink /></a></Button>
         ) : (
-          <Button variant="soft" className="mt-6" disabled>Official link pending verification</Button>
+          <p className="mt-6 text-sm text-muted-foreground">{s.id === "karnataka-shakti" ? "Use the benefit during eligible travel with accepted identity proof; no online application is needed." : "Online application link not verified. Follow the official guidance above."}</p>
         )}
+        {(s.relatedLinks ?? []).map((link) => <p key={link.url} className="mt-4 text-sm"><a href={link.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-accent hover:underline">{link.label} {link.kind === "status" && "(status only)"}<ExternalLink className="size-3 shrink-0" /></a></p>)}
       </section>
     </div>
   );
