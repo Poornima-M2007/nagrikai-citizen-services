@@ -1,5 +1,7 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { useEffect, useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useAuth } from "@/lib/auth";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,7 +34,14 @@ function Auth() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [notice, setNotice] = useState<string | null>(null);
 
-  const submit = (e: React.FormEvent) => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+  const [busy, setBusy] = useState(false);
+  const [tone, setTone] = useState<"warn" | "info">("warn");
+
+  useEffect(() => { if (user) navigate({ to: "/dashboard", replace: true }); }, [user, navigate]);
+
+  const submit = async (e: React.FormEvent) => {
     e.preventDefault();
     setNotice(null);
     const r = authSchemas[mode].safeParse(values);
@@ -41,7 +50,32 @@ function Auth() {
       return;
     }
     setErrors({});
-    setNotice("Accounts are not connected yet, so you have not been signed in. Sign-in will work once the backend is enabled.");
+    setBusy(true);
+    try {
+      if (mode === "login") {
+        const { error } = await supabase.auth.signInWithPassword({ email: values.email.trim(), password: values.password });
+        if (error) throw error;
+        navigate({ to: "/dashboard", replace: true });
+      } else if (mode === "signup") {
+        const { data, error } = await supabase.auth.signUp({
+          email: values.email.trim(),
+          password: values.password,
+          options: { emailRedirectTo: window.location.origin, data: { full_name: values.name.trim() } },
+        });
+        if (error) throw error;
+        if (!data.session) { setTone("info"); setNotice("Account created. Check your email and click the confirmation link, then log in."); }
+      } else {
+        const { error } = await supabase.auth.resetPasswordForEmail(values.email.trim(), { redirectTo: `${window.location.origin}/reset-password` });
+        if (error) throw error;
+        setTone("info");
+        setNotice("If an account exists for this email, a reset link has been sent.");
+      }
+    } catch (err) {
+      setTone("warn");
+      setNotice(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setBusy(false);
+    }
   };
 
   const field = (k: "name" | "email" | "password", label: string, type = "text") => (
@@ -70,10 +104,10 @@ function Auth() {
             {field("email", "Email", "email")}
             {mode !== "forgot" && field("password", "Password", "password")}
             {mode === "login" && <button type="button" onClick={() => { setMode("forgot"); setNotice(null); }} className="text-sm font-medium text-accent hover:underline">Forgot password?</button>}
-            <Button type="submit" variant="hero" size="lg" className="w-full">{mode === "login" ? "Login" : mode === "signup" ? "Create account" : "Send reset link"}</Button>
+            <Button type="submit" variant="hero" size="lg" className="w-full" disabled={busy}>{mode === "login" ? "Login" : mode === "signup" ? "Create account" : "Send reset link"}</Button>
             {mode === "forgot" && <button type="button" onClick={() => setMode("login")} className="w-full text-sm text-muted-foreground hover:text-foreground">Back to login</button>}
           </form>
-          {notice && <div className="mt-5"><Notice tone="warn">{notice}</Notice></div>}
+          {notice && <div className="mt-5"><Notice tone={tone}>{notice}</Notice></div>}
         </div>
         <p className="mt-6 text-center text-sm text-muted-foreground"><Link to="/" className="hover:text-foreground">← Back to home</Link></p>
       </div>

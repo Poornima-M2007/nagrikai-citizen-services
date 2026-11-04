@@ -14,6 +14,7 @@ import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
 import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as UpdatesRouteImport } from './routes/updates'
 import { Route as VoiceRouteImport } from './routes/voice'
 import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
@@ -42,6 +43,11 @@ const AuthRoute = AuthRouteImport.update({
 const DocumentsRoute = DocumentsRouteImport.update({
   id: '/documents',
   path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UpdatesRoute = UpdatesRouteImport.update({
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/documents': typeof DocumentsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/updates': typeof UpdatesRoute
   '/voice': typeof VoiceRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -86,6 +93,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/documents': typeof DocumentsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/updates': typeof UpdatesRoute
   '/voice': typeof VoiceRoute
   '/dashboard': typeof AuthenticatedDashboardRoute
@@ -99,6 +107,7 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
   '/documents': typeof DocumentsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/updates': typeof UpdatesRoute
   '/voice': typeof VoiceRoute
   '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
@@ -112,6 +121,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/documents'
+    | '/reset-password'
     | '/updates'
     | '/voice'
     | '/dashboard'
@@ -123,6 +133,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/documents'
+    | '/reset-password'
     | '/updates'
     | '/voice'
     | '/dashboard'
@@ -135,6 +146,7 @@ export interface FileRouteTypes {
     | '/about'
     | '/auth'
     | '/documents'
+    | '/reset-password'
     | '/updates'
     | '/voice'
     | '/_authenticated/dashboard'
@@ -148,6 +160,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AuthRoute: typeof AuthRoute
   DocumentsRoute: typeof DocumentsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   UpdatesRoute: typeof UpdatesRoute
   VoiceRoute: typeof VoiceRoute
   SchemesSchemeIdRoute: typeof SchemesSchemeIdRoute
@@ -189,6 +202,13 @@ declare module '@tanstack/react-router' {
       path: '/documents'
       fullPath: '/documents'
       preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/updates': {
@@ -246,6 +266,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AuthRoute: AuthRoute,
   DocumentsRoute: DocumentsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   UpdatesRoute: UpdatesRoute,
   VoiceRoute: VoiceRoute,
   SchemesSchemeIdRoute: SchemesSchemeIdRoute,
