@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, BadgeCheck, Bell, FileText, Languages, Lock, Mic, MousePointerClick, MessageSquareText, Search, Smartphone, Sparkles, Lightbulb } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useI18n } from "@/i18n/I18nProvider";
-import heroImg from "@/assets/hero-citizens.jpg";
+import heroImg from "@/assets/citizen-services-home.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -46,60 +46,46 @@ function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-gradient-hero">
-        <div className="pointer-events-none absolute -top-24 right-[-10%] size-[28rem] rounded-full bg-accent/15 blur-3xl" aria-hidden />
-        <div className="pointer-events-none absolute -bottom-32 left-[-8%] size-[24rem] rounded-full bg-saffron/15 blur-3xl" aria-hidden />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 py-16 sm:px-6 md:py-24 lg:grid-cols-[1.05fr_1fr] lg:gap-16">
-          <div className="animate-rise">
-            <span className="inline-flex items-center gap-2 rounded-full border bg-card/80 px-3.5 py-1.5 text-sm font-medium text-primary shadow-soft backdrop-blur">
-              <span className="size-2 rounded-full bg-saffron animate-soft-pulse" /> {t("hero.badge")}
-            </span>
-            <h1 className="mt-6 max-w-xl text-4xl font-extrabold leading-[1.06] tracking-tight text-primary sm:text-5xl lg:text-[3.6rem]">{t("hero.title")}</h1>
-            <p className="mt-6 max-w-xl text-lg leading-relaxed text-muted-foreground">{t("hero.subtitle")}</p>
-            <div className="mt-9 flex flex-wrap gap-3">
-              <Button asChild size="lg" variant="hero" className="group h-12 px-7 text-base">
-                <Link to="/schemes">{t("hero.ctaPrimary")} <ArrowRight className="transition-transform group-hover:translate-x-1" /></Link>
+      <section className="home-hero relative isolate overflow-hidden bg-navy-deep text-primary-foreground">
+        <img src={heroImg} width={1920} height={1024} alt="Indian citizens reviewing a document together with an adviser" fetchPriority="high" className="home-hero-image absolute inset-0 -z-20 h-full w-full object-cover" />
+        <div className="home-hero-shade absolute inset-0 -z-10" aria-hidden />
+        <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 sm:py-16 lg:py-20">
+          <div className="max-w-xl animate-rise">
+            <p className="flex items-center gap-2 text-sm font-semibold text-primary-foreground/85"><span className="h-0.5 w-6 bg-saffron" aria-hidden />{t("hero.badge")}</p>
+            <h1 className="mt-5 font-display text-2xl font-bold">Nagrik<span className="text-saffron">AI</span></h1>
+            <p className="mt-3 font-display text-4xl font-bold leading-[1.18] sm:text-5xl">{t("hero.title")}</p>
+            <p className="mt-5 max-w-lg text-base leading-relaxed text-primary-foreground/85 sm:text-lg">{t("hero.subtitle")}</p>
+            <div className="home-actions mt-7 flex flex-wrap gap-3">
+              <Button asChild size="lg" variant="teal" className="group min-h-12 h-auto whitespace-normal rounded-lg px-5 py-3 text-left">
+                <Link to="/schemes">{t("hero.ctaPrimary")} <ArrowRight className="shrink-0 transition-transform group-hover:translate-x-1" /></Link>
               </Button>
-              <Button asChild size="lg" variant="soft" className="h-12 px-7 text-base">
+              <Button asChild size="lg" variant="soft" className="min-h-12 h-auto whitespace-normal rounded-lg px-5 py-3 text-left">
                 <Link to="/documents"><FileText /> {t("hero.ctaSecondary")}</Link>
               </Button>
-            </div>
-            <ul className="mt-10 flex flex-wrap gap-x-7 gap-y-3" aria-label="Platform highlights">
-              {trust.map((item) => (
-                <li key={item.label} className="flex items-center gap-2 text-sm font-medium text-muted-foreground">
-                  <item.icon className="size-4 text-accent" aria-hidden /> {item.label}
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="relative animate-rise [animation-delay:150ms]">
-            <div className="absolute -inset-5 rounded-[2.5rem] bg-accent/10 blur-2xl" aria-hidden />
-            <img src={heroImg} width={1280} height={1024} alt="Citizens asking NagrikAI about schemes, documents and pensions" className="relative w-full rounded-3xl border bg-card shadow-elegant" />
-            <div className="absolute -bottom-5 -left-3 hidden animate-float items-center gap-3 rounded-2xl border bg-card/95 px-4 py-3 shadow-elegant backdrop-blur sm:flex">
-              <span className="grid size-10 place-items-center rounded-xl bg-accent/10"><BadgeCheck className="size-5 text-accent" aria-hidden /></span>
-              <div>
-                <p className="text-sm font-semibold text-foreground">{t("hero.floatTitle")}</p>
-                <p className="text-xs text-muted-foreground">{t("hero.floatDesc")}</p>
-              </div>
             </div>
           </div>
         </div>
       </section>
+      <section className="border-b bg-card">
+        <ul className="mx-auto grid max-w-7xl gap-4 px-4 py-6 sm:grid-cols-3 sm:px-6">
+          {trust.map((item) => <li key={item.label} className="flex items-center gap-3 text-sm font-semibold sm:justify-center"><item.icon className="size-5 shrink-0 text-accent" aria-hidden />{item.label}</li>)}
+        </ul>
+      </section>
 
       {/* Quick access */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-24">
+      <section className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight text-primary md:text-4xl">{t("quick.title")}</h2>
           <p className="mt-3 text-lg text-muted-foreground">{t("quick.subtitle")}</p>
         </div>
-        <div className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {quick.map((q) => (
-            <Link key={q.to} to={q.to} className="group relative flex flex-col overflow-hidden rounded-2xl border bg-card p-6 shadow-soft transition-all duration-300 hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-elegant">
+            <Link key={q.to} to={q.to} className="group relative flex flex-col overflow-hidden rounded-lg border bg-card p-6 shadow-soft transition-all duration-200 hover:-translate-y-1 hover:border-accent/40 hover:shadow-elegant focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring">
               <span className="pointer-events-none absolute inset-x-0 top-0 h-1 origin-left scale-x-0 bg-gradient-primary transition-transform duration-300 group-hover:scale-x-100" aria-hidden />
-              <span className={`grid size-12 place-items-center rounded-xl shadow-soft transition-transform duration-300 group-hover:scale-110 ${q.tone}`}><q.icon className="size-6" /></span>
+              <span className={`grid size-12 place-items-center rounded-lg shadow-soft ${q.tone}`}><q.icon className="size-6" aria-hidden /></span>
               <h3 className="mt-5 text-lg font-semibold text-foreground">{q.title}</h3>
               <p className="mt-2 flex-1 text-sm leading-relaxed text-muted-foreground">{q.desc}</p>
-              <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-semibold text-accent">{t("quick.open")} <ArrowRight className="size-4 transition-transform duration-300 group-hover:translate-x-1.5" /></span>
+              <span className="mt-7 inline-flex items-center justify-between gap-1.5 border-t pt-4 text-sm font-semibold text-primary">{t("quick.open")} <ArrowRight className="size-4 text-accent transition-transform duration-200 group-hover:translate-x-1" /></span>
             </Link>
           ))}
         </div>
@@ -107,14 +93,13 @@ function Home() {
 
       {/* How it works */}
       <section className="border-y bg-secondary/60">
-        <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-24">
-          <h2 className="text-center text-3xl font-bold tracking-tight text-primary md:text-4xl">{t("how.title")}</h2>
-          <ol className="relative mt-14 grid gap-6 md:grid-cols-3">
-            <span className="pointer-events-none absolute left-[16%] right-[16%] top-16 hidden border-t-2 border-dashed border-accent/30 md:block" aria-hidden />
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
+          <h2 className="text-3xl font-bold text-primary md:text-4xl">{t("how.title")}</h2>
+          <ol className="mt-10 grid gap-8 md:grid-cols-3">
             {steps.map((s, i) => (
-              <li key={i} className="relative rounded-2xl bg-card p-7 shadow-soft transition-shadow duration-300 hover:shadow-elegant">
+              <li key={i} className="border-t border-accent/30 pt-6">
                 <div className="flex items-start justify-between">
-                  <span className="grid size-14 place-items-center rounded-2xl bg-gradient-primary font-display text-xl font-extrabold text-primary-foreground shadow-elegant">{i + 1}</span>
+                  <span className="font-display text-4xl font-semibold text-primary/35">0{i + 1}</span>
                   <s.icon className="mt-1 size-7 text-accent" aria-hidden />
                 </div>
                 <h3 className="mt-5 text-lg font-semibold">{s.title}</h3>
@@ -126,16 +111,14 @@ function Home() {
       </section>
 
       {/* Why NagrikAI */}
-      <section className="mx-auto max-w-7xl px-4 py-20 sm:px-6 md:py-24">
-        <div className="relative overflow-hidden rounded-3xl bg-gradient-navy p-8 text-primary-foreground md:p-14">
-          <div className="pointer-events-none absolute -right-20 -top-20 size-72 rounded-full bg-accent/20 blur-3xl" aria-hidden />
-          <div className="pointer-events-none absolute -bottom-24 -left-16 size-64 rounded-full bg-saffron/15 blur-3xl" aria-hidden />
+      <section className="bg-gradient-navy text-primary-foreground">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 md:py-20">
           <div className="relative">
             <h2 className="text-3xl font-bold tracking-tight md:text-4xl">{t("why.title")}</h2>
             <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
               {why.map((w) => (
                 <div key={w.title} className="group">
-                  <span className="grid size-12 place-items-center rounded-xl border border-primary-foreground/15 bg-primary-foreground/10 transition-colors duration-300 group-hover:bg-primary-foreground/15">
+                  <span className="grid size-12 place-items-center rounded-lg border border-primary-foreground/15 bg-primary-foreground/10">
                     <w.icon className="size-5 text-saffron" aria-hidden />
                   </span>
                   <h3 className="mt-4 font-semibold">{w.title}</h3>
@@ -148,15 +131,15 @@ function Home() {
       </section>
 
       {/* Final CTA */}
-      <section className="mx-auto max-w-7xl px-4 pb-24 sm:px-6">
-        <div className="rounded-3xl border bg-card p-10 text-center shadow-soft md:p-14">
+      <section className="bg-card">
+        <div className="mx-auto max-w-7xl px-4 py-14 text-center sm:px-6 md:py-20">
           <h2 className="mx-auto max-w-2xl text-3xl font-bold tracking-tight text-primary md:text-4xl">{t("cta.title")}</h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">{t("cta.subtitle")}</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button asChild size="lg" variant="hero" className="group h-12 px-7 text-base">
+              <Button asChild size="lg" variant="hero" className="group min-h-12 h-auto max-w-full whitespace-normal rounded-lg px-6 py-3 text-base">
               <Link to="/schemes">{t("hero.ctaPrimary")} <ArrowRight className="transition-transform group-hover:translate-x-1" /></Link>
             </Button>
-            <Button asChild size="lg" variant="soft" className="h-12 px-7 text-base">
+              <Button asChild size="lg" variant="soft" className="min-h-12 h-auto max-w-full whitespace-normal rounded-lg px-6 py-3 text-base">
               <Link to="/documents"><FileText /> {t("hero.ctaSecondary")}</Link>
             </Button>
           </div>

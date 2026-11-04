@@ -21,6 +21,8 @@ const en = {
   "nav.login": "Login / Sign Up",
   "nav.dashboard": "Dashboard",
   "nav.language": "Language",
+  "nav.toggleMenu": "Toggle menu",
+  "footer.contactPending": "Contact details are not available yet.",
   "hero.badge": "AI assistance for every Indian citizen",
   "hero.title": "Government Services, Simplified for Every Citizen.",
   "hero.subtitle":
@@ -83,6 +85,8 @@ const hi: Dict = {
   "nav.login": "लॉगिन / साइन अप",
   "nav.dashboard": "डैशबोर्ड",
   "nav.language": "भाषा",
+  "nav.toggleMenu": "मेनू खोलें या बंद करें",
+  "footer.contactPending": "संपर्क विवरण अभी उपलब्ध नहीं हैं।",
   "hero.badge": "हर भारतीय नागरिक के लिए AI सहायता",
   "hero.title": "सरकारी सेवाएँ, हर नागरिक के लिए सरल।",
   "hero.subtitle":
@@ -142,6 +146,8 @@ const kn: Dict = {
   "nav.login": "ಲಾಗಿನ್ / ಸೈನ್ ಅಪ್",
   "nav.dashboard": "ಡ್ಯಾಶ್‌ಬೋರ್ಡ್",
   "nav.language": "ಭಾಷೆ",
+  "nav.toggleMenu": "ಮೆನು ತೆರೆಯಿರಿ ಅಥವಾ ಮುಚ್ಚಿರಿ",
+  "footer.contactPending": "ಸಂಪರ್ಕ ವಿವರಗಳು ಇನ್ನೂ ಲಭ್ಯವಿಲ್ಲ.",
   "hero.badge": "ಪ್ರತಿಯೊಬ್ಬ ಭಾರತೀಯ ನಾಗರಿಕನಿಗೆ AI ನೆರವು",
   "hero.title": "ಸರ್ಕಾರಿ ಸೇವೆಗಳು, ಪ್ರತಿಯೊಬ್ಬ ನಾಗರಿಕನಿಗೂ ಸರಳ.",
   "hero.subtitle":
@@ -201,6 +207,8 @@ const te: Dict = {
   "nav.login": "లాగిన్ / సైన్ అప్",
   "nav.dashboard": "డాష్‌బోర్డ్",
   "nav.language": "భాష",
+  "nav.toggleMenu": "మెనూ తెరవండి లేదా మూసివేయండి",
+  "footer.contactPending": "సంప్రదింపు వివరాలు ఇంకా అందుబాటులో లేవు.",
   "hero.badge": "ప్రతి భారతీయ పౌరునికి AI సహాయం",
   "hero.title": "ప్రభుత్వ సేవలు, ప్రతి పౌరునికి సులభంగా.",
   "hero.subtitle":
@@ -260,6 +268,8 @@ const ta: Dict = {
   "nav.login": "உள்நுழை / பதிவு",
   "nav.dashboard": "டாஷ்போர்டு",
   "nav.language": "மொழி",
+  "nav.toggleMenu": "பட்டியலைத் திற அல்லது மூடு",
+  "footer.contactPending": "தொடர்பு விவரங்கள் இன்னும் கிடைக்கவில்லை.",
   "hero.badge": "ஒவ்வொரு இந்தியக் குடிமகனுக்கும் AI உதவி",
   "hero.title": "அரசு சேவைகள், ஒவ்வொரு குடிமகனுக்கும் எளிமையாக.",
   "hero.subtitle":

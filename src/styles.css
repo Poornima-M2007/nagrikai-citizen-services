@@ -97,6 +97,28 @@
   --gradient-navy: linear-gradient(160deg, oklch(0.24 0.08 263), oklch(0.3 0.1 245));
   --shadow-soft: 0 1px 2px oklch(0.22 0.06 262 / 0.04), 0 8px 24px -12px oklch(0.22 0.06 262 / 0.14);
   --shadow-elegant: 0 14px 34px -14px oklch(0.32 0.11 262 / 0.5);
+  --home-hero-shade: linear-gradient(90deg, oklch(0.22 0.08 263 / 0.88) 0%, oklch(0.22 0.08 263 / 0.76) 35%, oklch(0.22 0.08 263 / 0.05) 70%);
+  --home-hero-shade-mobile: linear-gradient(90deg, oklch(0.22 0.08 263 / 0.94), oklch(0.22 0.08 263 / 0.75));
+}
+
+.home-hero-shade { background: var(--home-hero-shade); }
+.home-hero-image { object-position: center; }
+@media (max-width: 1023px) {
+  .home-hero-shade { background: var(--home-hero-shade-mobile); }
+  .home-hero-image { object-position: 65% center; }
+}
+@media (max-width: 639px) {
+  .home-actions > a { width: 100%; }
+}
+@media (min-width: 640px) and (max-height: 650px) {
+  .home-hero > div:last-child { padding-top: 24px; padding-bottom: 24px; }
+  .home-hero h1 { margin-top: 12px; }
+  .home-hero h1 + p { font-size: 32px; line-height: 1.2; }
+  .home-hero h1 + p + p { margin-top: 12px; font-size: 16px; }
+  .home-actions { margin-top: 16px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
 }
 
 @utility bg-gradient-primary { background-image: var(--gradient-primary); }
@@ -135,5 +157,5 @@
     font-family: var(--font-sans);
     -webkit-font-smoothing: antialiased;
   }
-  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: -0.02em; }
+  h1, h2, h3, h4 { font-family: var(--font-display); letter-spacing: 0; }
 }
