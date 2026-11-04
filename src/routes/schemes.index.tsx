@@ -39,7 +39,7 @@ function Schemes() {
     <>
       <PageHeader eyebrow={t("quick.schemes")} title={t("nav.schemes")} description="Search by keyword and narrow down by government level, state, category and who the scheme is for." />
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
-        <div className="grid gap-3 rounded-2xl border bg-card p-4 shadow-soft md:grid-cols-6">
+        <div className="grid gap-3 rounded-2xl border bg-card p-4 shadow-soft md:grid-cols-2 xl:grid-cols-6">
           <div className="relative md:col-span-2">
             <Search className="absolute left-3 top-3.5 size-4 text-muted-foreground" />
             <Input aria-label={t("common.search")} placeholder="Search schemes…" value={f.q} onChange={set("q")} className="h-11 rounded-xl pl-9" />
