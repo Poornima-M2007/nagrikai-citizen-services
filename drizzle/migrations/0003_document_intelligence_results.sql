@@ -1,0 +1,5 @@
+ALTER TABLE public.document_analyses ADD COLUMN IF NOT EXISTS pages jsonb NOT NULL DEFAULT '[]', ADD COLUMN IF NOT EXISTS extracted_fields jsonb NOT NULL DEFAULT '[]', ADD COLUMN IF NOT EXISTS warnings jsonb NOT NULL DEFAULT '[]', ADD COLUMN IF NOT EXISTS document_type text, ADD COLUMN IF NOT EXISTS reviewed_fields jsonb, ADD COLUMN IF NOT EXISTS reviewed_at timestamptz;
+ALTER TABLE public.documents ADD COLUMN IF NOT EXISTS processing_error text;
+CREATE INDEX IF NOT EXISTS document_analyses_document_idx ON public.document_analyses(document_id);
+CREATE OR REPLACE FUNCTION public.cleanup_document_data() RETURNS trigger LANGUAGE plpgsql SECURITY DEFINER SET search_path = public AS $$ BEGIN DELETE FROM public.conversation_messages WHERE conversation_id IN (SELECT id FROM public.conversations WHERE document_id = OLD.id); DELETE FROM public.conversations WHERE document_id = OLD.id; DELETE FROM public.document_analyses WHERE document_id = OLD.id; RETURN OLD; END $$;
+CREATE TRIGGER cleanup_document_data BEFORE DELETE ON public.documents FOR EACH ROW EXECUTE FUNCTION public.cleanup_document_data();

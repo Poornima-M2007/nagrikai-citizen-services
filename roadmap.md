@@ -4,4 +4,10 @@
 - [x] Extend the existing schemes table with verification status, structured eligibility rules and data-quality notes (no duplicate tables, no deletions).
 - [x] Backfill structured eligibility only from source-verified facts; leave unverified records empty.
 - [x] Write the audit report (docs/scheme-eligibility-audit.md and Files copy).
-- [ ] Future task (not in scope): rule-based eligibility matching and document analysis.
+- [ ] Future task (not in scope): rule-based eligibility matching.
+
+# Real document intelligence
+- [ ] Multiple private uploads with validation and per-file status.
+- [ ] Digital PDF extraction, vision OCR, explanations and grounded questions.
+- [ ] Private saved results, citizen review and complete document deletion.
+- [ ] Test digital PDF, scan, image, multiple files, missing data and invalid files; report limitations.

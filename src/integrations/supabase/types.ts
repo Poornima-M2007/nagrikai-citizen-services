@@ -88,35 +88,53 @@ export type Database = {
         Row: {
           created_at: string
           document_id: string
+          document_type: string | null
+          extracted_fields: Json
           extracted_text: string | null
           id: string
           important_dates: Json
           language: string
+          pages: Json
           requirements: Json
+          reviewed_at: string | null
+          reviewed_fields: Json | null
           simple_explanation: string | null
           user_id: string
+          warnings: Json
         }
         Insert: {
           created_at?: string
           document_id: string
+          document_type?: string | null
+          extracted_fields?: Json
           extracted_text?: string | null
           id?: string
           important_dates?: Json
           language?: string
+          pages?: Json
           requirements?: Json
+          reviewed_at?: string | null
+          reviewed_fields?: Json | null
           simple_explanation?: string | null
           user_id: string
+          warnings?: Json
         }
         Update: {
           created_at?: string
           document_id?: string
+          document_type?: string | null
+          extracted_fields?: Json
           extracted_text?: string | null
           id?: string
           important_dates?: Json
           language?: string
+          pages?: Json
           requirements?: Json
+          reviewed_at?: string | null
+          reviewed_fields?: Json | null
           simple_explanation?: string | null
           user_id?: string
+          warnings?: Json
         }
         Relationships: [
           {
@@ -134,6 +152,7 @@ export type Database = {
           file_name: string
           id: string
           mime_type: string
+          processing_error: string | null
           size_bytes: number
           status: string
           storage_path: string
@@ -145,6 +164,7 @@ export type Database = {
           file_name: string
           id?: string
           mime_type: string
+          processing_error?: string | null
           size_bytes: number
           status?: string
           storage_path: string
@@ -156,6 +176,7 @@ export type Database = {
           file_name?: string
           id?: string
           mime_type?: string
+          processing_error?: string | null
           size_bytes?: number
           status?: string
           storage_path?: string
