@@ -261,9 +261,11 @@ export type Database = {
           benefits: string | null
           category: string
           created_at: string
+          data_quality_notes: string | null
           description: string
           documents: string[]
           eligibility: string[]
+          eligibility_rules: Json | null
           eligibility_summary: string | null
           id: string
           last_verified: string | null
@@ -273,6 +275,7 @@ export type Database = {
           source: string
           state: string | null
           updated_at: string
+          verification_status: string
         }
         Insert: {
           application_steps?: string[]
@@ -280,9 +283,11 @@ export type Database = {
           benefits?: string | null
           category: string
           created_at?: string
+          data_quality_notes?: string | null
           description: string
           documents?: string[]
           eligibility?: string[]
+          eligibility_rules?: Json | null
           eligibility_summary?: string | null
           id: string
           last_verified?: string | null
@@ -292,6 +297,7 @@ export type Database = {
           source: string
           state?: string | null
           updated_at?: string
+          verification_status?: string
         }
         Update: {
           application_steps?: string[]
@@ -299,9 +305,11 @@ export type Database = {
           benefits?: string | null
           category?: string
           created_at?: string
+          data_quality_notes?: string | null
           description?: string
           documents?: string[]
           eligibility?: string[]
+          eligibility_rules?: Json | null
           eligibility_summary?: string | null
           id?: string
           last_verified?: string | null
@@ -311,6 +319,7 @@ export type Database = {
           source?: string
           state?: string | null
           updated_at?: string
+          verification_status?: string
         }
         Relationships: []
       }
