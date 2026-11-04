@@ -16,6 +16,8 @@ export const Route = createFileRoute("/documents")({
       { name: "description", content: "Upload a government document as PDF or image and get a simple-language explanation." },
       { property: "og:title", content: "AI Document Assistant — NagrikAI" },
       { property: "og:description", content: "Understand official documents in plain language." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Documents,

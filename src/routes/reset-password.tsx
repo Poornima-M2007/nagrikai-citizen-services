@@ -16,6 +16,8 @@ export const Route = createFileRoute("/reset-password")({
       { name: "description", content: "Choose a new password for your NagrikAI account." },
       { property: "og:title", content: "Set a New Password — NagrikAI" },
       { property: "og:description", content: "Reset your NagrikAI password." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "noindex" },
     ],
   }),

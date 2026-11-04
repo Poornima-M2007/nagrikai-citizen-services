@@ -21,6 +21,8 @@ export const Route = createFileRoute("/_authenticated/dashboard")({
       { name: "description", content: "Your documents, saved schemes, conversations and notifications." },
       { property: "og:title", content: "My Dashboard — NagrikAI" },
       { property: "og:description", content: "Your personal NagrikAI space." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "noindex" },
     ],
   }),

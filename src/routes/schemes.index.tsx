@@ -16,6 +16,8 @@ export const Route = createFileRoute("/schemes/")({
       { name: "description", content: "Search and filter government schemes by state, category and beneficiary type." },
       { property: "og:title", content: "Explore Government Schemes — NagrikAI" },
       { property: "og:description", content: "Find schemes that may fit you, with eligibility and required documents." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Schemes,

@@ -14,6 +14,8 @@ export const Route = createFileRoute("/voice")({
       { name: "description", content: "Ask about government services by voice in English, Hindi, Kannada, Telugu or Tamil." },
       { property: "og:title", content: "AI Voice Assistant — NagrikAI" },
       { property: "og:description", content: "Speak your question, hear the answer in your language." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Voice,

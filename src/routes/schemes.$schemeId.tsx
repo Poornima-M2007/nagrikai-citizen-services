@@ -15,6 +15,8 @@ export const Route = createFileRoute("/schemes/$schemeId")({
       { name: "description", content: "Eligibility, benefits, required documents and how to apply for this government scheme." },
       { property: "og:title", content: "Scheme details — NagrikAI" },
       { property: "og:description", content: "Eligibility, benefits, required documents and how to apply." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: SchemeDetail,
