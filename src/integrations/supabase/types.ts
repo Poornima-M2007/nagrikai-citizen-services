@@ -293,6 +293,8 @@ export type Database = {
           level: string
           name: string
           official_url: string | null
+          record_type: string
+          related_links: Json
           source: string
           state: string | null
           updated_at: string
@@ -315,6 +317,8 @@ export type Database = {
           level: string
           name: string
           official_url?: string | null
+          record_type?: string
+          related_links?: Json
           source: string
           state?: string | null
           updated_at?: string
@@ -337,6 +341,8 @@ export type Database = {
           level?: string
           name?: string
           official_url?: string | null
+          record_type?: string
+          related_links?: Json
           source?: string
           state?: string | null
           updated_at?: string

@@ -1,0 +1,439 @@
+[
+  {
+    "id": "karnataka-anna-bhagya",
+    "name": "Anna Bhagya",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Food Security",
+    "beneficiary": "Low-income ration-card households",
+    "description": "Karnataka food-security support for eligible priority and Antyodaya ration-card households through the public distribution system.",
+    "eligibility_summary": "Eligible BPL/PHH or AAY ration-card households, subject to Food Department verification and current distribution rules.",
+    "benefits": "Food-security support through the public distribution system. Official sources describe changed rice and supplemental-food arrangements; confirm the current allocation with the Food Department. No current cash amount or exact statewide top-up entitlement is verified here.",
+    "eligibility": [
+      "Hold an eligible BPL/PHH or Antyodaya Anna Yojana ration card.",
+      "Benefit allocation and identity requirements remain subject to current Food Department rules."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Contact the local fair-price shop or Food Department to confirm the current Anna Bhagya entitlement linked to your ration card.",
+      "For ration-card or eligibility issues, use the Food Department’s officially notified service channels."
+    ],
+    "official_url": null,
+    "source": "https://chikkamagaluru.nic.in/en/food-civil-supplies-and-consumer-affairs-department/",
+    "last_verified": "2026-11-04",
+    "verification_status": "partially_verified",
+    "eligibility_rules": {
+      "ration_card": [
+        "BPL/PHH",
+        "AAY"
+      ],
+      "residence_state": "Karnataka"
+    },
+    "data_quality_notes": "Ration-card eligibility verified via official district Food Department page. Ahara is an official department information/ration-service destination, not a verified Anna Bhagya application form; live reachability timed out. Current allocation/top-up entitlement and document list remain unverified.",
+    "record_type": "scheme",
+    "related_links": [
+      {
+        "url": "https://ahara.karnataka.gov.in/",
+        "kind": "information",
+        "label": "Food Department ration services and information"
+      }
+    ]
+  },
+  {
+    "id": "pmjay",
+    "name": "Ayushman Bharat Pradhan Mantri Jan Arogya Yojana (AB PM-JAY)",
+    "level": "Central",
+    "state": null,
+    "category": "Health",
+    "beneficiary": "Eligible beneficiary families and senior citizens aged 70 years and above",
+    "description": "Health assurance for covered secondary and tertiary care hospitalisation at empanelled hospitals; not an unrestricted cash payment.",
+    "eligibility_summary": "Eligible identified beneficiary families; coverage also extends to all senior citizens aged 70 years and above irrespective of socio-economic status, under applicable rules.",
+    "benefits": "Health cover of up to ₹5 lakh per eligible family per year for covered secondary and tertiary care hospitalisation. Coverage extends to senior citizens aged 70 years and above irrespective of socio-economic status, under applicable rules.",
+    "eligibility": [
+      "For the general beneficiary route, eligibility is based on the applicable beneficiary identification criteria.",
+      "All senior citizens aged 70 years and above are eligible irrespective of socio-economic status, subject to scheme enrolment requirements."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Use the official beneficiary portal or Ayushman App, or visit an empanelled hospital or Common Service Centre.",
+      "Complete enrolment and beneficiary identification through the selected official channel.",
+      "Use an empanelled hospital for covered treatment; covered procedures and authorisation remain subject to scheme rules."
+    ],
+    "official_url": "https://beneficiary.nha.gov.in/",
+    "source": "https://www.pib.gov.in/PressReleasePage.aspx?PRID=2110780&lang=1&reg=3",
+    "last_verified": "2026-11-04",
+    "verification_status": "partially_verified",
+    "eligibility_rules": {
+      "general_route_basis": "official beneficiary identification criteria",
+      "senior_route_age_min": 70
+    },
+    "data_quality_notes": "Core cover and the age-70 senior-citizen extension verified via PIB. Required-documents list unavailable; general-route eligibility depends on beneficiary identification, not detailed public criteria.",
+    "record_type": "scheme",
+    "related_links": []
+  },
+  {
+    "id": "karnataka-gruha-lakshmi",
+    "name": "Gruha Lakshmi Yojana",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Women Welfare",
+    "beneficiary": "Eligible women heads of households",
+    "description": "Karnataka direct-benefit support for eligible women heads of households. Detailed qualifying and exclusion rules must be confirmed with the Women and Child Development Department.",
+    "eligibility_summary": "Eligible female heads of Karnataka households; the full current eligibility and exclusion checklist was not verified.",
+    "benefits": "The official district welfare directory describes ₹2,000 per month through direct bank transfer to eligible women heads of households. Payment and eligibility remain subject to department rules.",
+    "eligibility": [],
+    "documents": [],
+    "application_steps": [
+      "Check the current Gruha Lakshmi eligibility rules and intake availability with the Women and Child Development Department or its official service channel.",
+      "Apply only through a currently notified official channel and complete the requested verification; submitting an application does not guarantee approval."
+    ],
+    "official_url": null,
+    "source": "https://chamrajnagar.nic.in/en/welfareschemes/",
+    "last_verified": "2026-11-04",
+    "verification_status": "partially_verified",
+    "eligibility_rules": null,
+    "data_quality_notes": "Name, Rs 2,000/month benefit and women-head-of-household targeting verified via official district welfare directory. The supplied gl-stat-sns destination has historical official schedule/lookup references but timed out; its current purpose and availability are unverified, and it is not presented as an application form. Detailed eligibility/exclusions, documents and application URL remain unverified.",
+    "record_type": "scheme",
+    "related_links": [
+      {
+        "url": "https://sevasindhugs1.karnataka.gov.in/gl-stat-sns/",
+        "kind": "information",
+        "label": "Gruha Lakshmi registration schedule / lookup"
+      }
+    ]
+  },
+  {
+    "id": "karnataka-ssp-postmatric",
+    "name": "Karnataka State Scholarship Portal (SSP) – Post-Matric",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Education",
+    "beneficiary": "Students applying for department-specific post-matric scholarships",
+    "description": "Official Karnataka scholarship portal listing for post-matric scholarships administered by participating departments. SSP is a platform for multiple schemes, not one universal scholarship.",
+    "eligibility_summary": "Eligibility depends on the selected department and scholarship. No universal income, caste, course or residence checklist is asserted here.",
+    "benefits": null,
+    "eligibility": [],
+    "documents": [],
+    "application_steps": [
+      "Check the responsible department’s current post-matric scholarship notification and application dates.",
+      "Use the official SSP post-matric portal if available; follow the selected scheme’s registration, application and verification instructions.",
+      "Confirm scheme-specific benefits and required documents with the department. Current intake and the live portal workflow could not be verified."
+    ],
+    "official_url": "https://ssp.postmatric.karnataka.gov.in/",
+    "source": "https://negd.gov.in/isl/Directory/statedata/391",
+    "last_verified": "2026-11-04",
+    "verification_status": "partially_verified",
+    "eligibility_rules": null,
+    "data_quality_notes": "Portal purpose and multi-department scholarship administration supported by the official NeGD India Stack Local directory. The supplied post-matric endpoint timed out; current intake, workflow, scheme-specific eligibility, awards and documents remain unverified. No universal scholarship is claimed.",
+    "record_type": "scholarship_portal",
+    "related_links": [
+      {
+        "url": "https://ssp.karnataka.gov.in/",
+        "kind": "information",
+        "label": "Karnataka SSP main portal"
+      }
+    ]
+  },
+  {
+    "id": "national-scholarship-portal",
+    "name": "National Scholarship Portal (NSP)",
+    "level": "Central",
+    "state": null,
+    "category": "Education",
+    "beneficiary": "Students applying for scheme-specific scholarships",
+    "description": "Government scholarship platform with student registration, scheme information, scholarship applications and application tracking. NSP contains multiple scholarships with separate eligibility and benefits.",
+    "eligibility_summary": "Select a scholarship and consult its current eligibility rules; NSP is not a universal scholarship.",
+    "benefits": null,
+    "eligibility": [],
+    "documents": [],
+    "application_steps": [
+      "Read the Students page for scheme details, timelines and the current registration instructions.",
+      "Complete the required One Time Registration (OTR), then log in to the official scholarship application facility.",
+      "Choose the applicable scheme, complete the requested details and scheme-specific documents, and final-submit for institution and authority verification.",
+      "Check the selected scheme’s current notification; this listing does not assert an open application window."
+    ],
+    "official_url": "https://scholarships.gov.in/Students",
+    "source": "https://scholarships.gov.in/Students",
+    "last_verified": "2026-11-04",
+    "verification_status": "verified",
+    "eligibility_rules": null,
+    "data_quality_notes": "Verified as a portal listing only: the official Students page supports scheme details, timelines, OTR and application access. Individual scholarship rules, benefits, documents and deadlines vary; no universal award or open intake is promised.",
+    "record_type": "scholarship_portal",
+    "related_links": [
+      {
+        "url": "https://scholarships.gov.in/public/FAQ/NSP_FAQsORApplicationUsermanul_V2.2.pdf",
+        "kind": "information",
+        "label": "NSP official scholarship application FAQ"
+      }
+    ]
+  },
+  {
+    "id": "pmvishwakarma",
+    "name": "PM Vishwakarma",
+    "level": "Central",
+    "state": null,
+    "category": "Livelihood and Skills",
+    "beneficiary": "Traditional artisans and craftspeople working with hands and tools in the 18 covered trades",
+    "description": "Central support for traditional artisans through recognition, skills, toolkit incentives, conditional credit and market linkages. Official scheme evidence does not guarantee that fresh registration is currently open.",
+    "eligibility_summary": "Artisans aged at least 18 working in a covered family-based traditional trade on a self-employed/unorganised-sector basis, subject to family and prior-credit restrictions.",
+    "benefits": "PM Vishwakarma certificate and ID card. Skill training with stipend of ₹500 per day. Toolkit incentive of ₹15,000 through an e-voucher. Collateral-free enterprise development loans: ₹1 lakh first tranche and ₹2 lakh second tranche at a concessional 5% interest rate, subject to training, loan-account and other tranche conditions; these are repayable loans, not grants. Digital transaction incentive of ₹1 per eligible transaction, up to 100 transactions monthly, and marketing support.",
+    "eligibility": [
+      "Minimum age 18 on the registration date.",
+      "Work with hands and tools in one of the 18 covered family-based traditional trades in the unorganised sector on a self-employment basis.",
+      "Only one member per family; family means husband, wife and unmarried children.",
+      "Applicant and family members must not be in government service.",
+      "Subject to restrictions on similar Central/State credit-based self-employment or business-development scheme loans during the previous five years; confirm applicable exceptions with the implementing authority."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Check the official portal or a Common Service Centre for current registration availability. Fresh registration being open has not been verified and is not guaranteed.",
+      "If intake is available, registration is facilitated by CSC agents on the official portal with Aadhaar biometric authentication.",
+      "Complete authority verification and required training; credit and subsequent benefits remain subject to their specific conditions."
+    ],
+    "official_url": "https://pmvishwakarma.gov.in/",
+    "source": "https://www.pib.gov.in/PressNoteDetails.aspx?ModuleId=3&NoteId=155216&lang=1&reg=48",
+    "last_verified": "2026-11-04",
+    "verification_status": "partially_verified",
+    "eligibility_rules": {
+      "age_min": 18,
+      "occupation": "traditional artisan or craftsperson in one of 18 covered trades (self-employed, unorganised sector)",
+      "one_member_per_family": true,
+      "government_service_excluded": true,
+      "prior_credit_scheme_restrictions": true
+    },
+    "data_quality_notes": "Eligibility and benefits verified via PIB. Required-documents list unavailable; whether fresh registration is currently open was not verified.",
+    "record_type": "scheme",
+    "related_links": []
+  },
+  {
+    "id": "pmyasasvi",
+    "name": "PM Young Achievers’ Scholarship Award Scheme for Vibrant India (PM-YASASVI)",
+    "level": "Central",
+    "state": null,
+    "category": "Education",
+    "beneficiary": "Eligible OBC, EBC and DNT students",
+    "description": "Government of India umbrella programme supporting education of OBC, EBC and DNT students through pre-matric, post-matric and top-class education components, with an OBC hostel-construction component. Component administration and eligibility differ; this is not one uniform scholarship.",
+    "eligibility_summary": "OBC, EBC or DNT students with annual family income up to ₹2.5 lakh, subject to the chosen component’s institution, class, selection and other rules.",
+    "benefits": "Pre-matric component: ₹4,000 annual academic allowance for eligible Class IX–X government-school students, as described in the PIB explainer. Post-matric component: academic allowances ranging from ₹5,000 to ₹20,000 according to course category, as described in the explainer. Top-class school/college components support eligible students’ educational costs subject to component limits and selection; benefits are not automatically cumulative.",
+    "eligibility": [
+      "Belong to an eligible OBC, EBC or DNT category.",
+      "Annual family income up to ₹2.5 lakh, subject to component-specific rules.",
+      "Pre-matric component covers Classes IX and X in government schools.",
+      "Post-matric and top-class components have separate course, institution and selection conditions; confirm current guidelines before applying."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Check the National Scholarship Portal and the responsible ministry/State authority for the relevant component and current academic-year notification. This record does not verify an open application window.",
+      "If the relevant application window is available, follow the notified registration and scholarship application process.",
+      "Submit the requested details for institution/authority verification and selection. Do not assume a historical entrance-test reference in the 2024 explainer is the current selection method."
+    ],
+    "official_url": "https://scholarships.gov.in/Students",
+    "source": "https://www.pib.gov.in/PressNoteDetails.aspx?ModuleId=3&NoteId=153359",
+    "last_verified": "2026-11-04",
+    "verification_status": "partially_verified",
+    "eligibility_rules": {
+      "category": [
+        "OBC",
+        "EBC",
+        "DNT"
+      ],
+      "education": "student (component-specific class/course rules apply)",
+      "income_limit_annual_inr": 250000
+    },
+    "data_quality_notes": "Umbrella programme; income limit and category verified via PIB explainer. Component-specific institution, class, selection rules and document lists differ and were not individually verified.",
+    "record_type": "scheme",
+    "related_links": []
+  },
+  {
+    "id": "pmay",
+    "name": "Pradhan Mantri Awas Yojana – Urban 2.0 (PMAY-U 2.0)",
+    "level": "Central",
+    "state": null,
+    "category": "Housing",
+    "beneficiary": "Eligible urban EWS, LIG and MIG households, depending on the component",
+    "description": "Urban housing support through Beneficiary Led Construction, Affordable Housing in Partnership, Affordable Rental Housing and Interest Subsidy Scheme. This record covers the urban scheme, not PMAY-Gramin.",
+    "eligibility_summary": "Eligible urban households subject to income, house-ownership, prior-benefit and component-specific conditions.",
+    "benefits": "BLC/AHP assistance up to ₹2.5 lakh for eligible EWS households, subject to the applicable funding pattern and conditions. Affordable rental housing for eligible EWS/LIG groups. Interest subsidy for eligible EWS/LIG/MIG home-loan borrowers under ISS conditions.",
+    "eligibility": [
+      "Annual household income limits: EWS up to ₹3 lakh; LIG up to ₹6 lakh; MIG up to ₹9 lakh. Component eligibility varies.",
+      "Ownership assistance is subject to the condition that the beneficiary family does not own a pucca house anywhere in India and to applicable prior housing-assistance restrictions.",
+      "BLC requires eligible EWS beneficiaries to have available land.",
+      "ISS applies to eligible loans sanctioned and disbursed on or after 1 September 2024, subject to its detailed limits.",
+      "Families that received a house under a Central, State/UT or local-government housing scheme in the preceding 20 years are not eligible, under the guidelines."
+    ],
+    "documents": [
+      "Proof of income for identification under the Interest Subsidy Scheme; other component-specific requirements must be confirmed with the implementing authority."
+    ],
+    "application_steps": [
+      "Read the official eligibility instructions and confirm the appropriate component with the urban local body or implementing agency.",
+      "Check the current application facility on the official portal or contact the urban local body. Availability is not guaranteed by this record.",
+      "Submit the required information for authority verification; submitting a form does not establish entitlement."
+    ],
+    "official_url": "https://pmaymis.gov.in/PMAYMIS2_2024/PMAY_SURVEY/EligiblityCheck.aspx",
+    "source": "https://pmay-urban.gov.in/uploads/guidelines/Operational-Guidelines-of-PMAY-U-2.pdf",
+    "last_verified": "2026-11-04",
+    "verification_status": "verified",
+    "eligibility_rules": {
+      "residence": "urban",
+      "income_limits_annual_inr": {
+        "EWS": 300000,
+        "LIG": 600000,
+        "MIG": 900000
+      },
+      "no_pucca_house_anywhere_in_india": true,
+      "prior_housing_benefit_within_20_years_excluded": true
+    },
+    "data_quality_notes": "Income limits, ownership and prior-benefit conditions verified against the PMAY-U 2.0 operational guidelines. Required documents are component-specific and only partly verified.",
+    "record_type": "scheme",
+    "related_links": []
+  },
+  {
+    "id": "pmkisan",
+    "name": "Pradhan Mantri Kisan Samman Nidhi (PM-KISAN)",
+    "level": "Central",
+    "state": null,
+    "category": "Agriculture",
+    "beneficiary": "Eligible landholding farmer families",
+    "description": "Central income support for eligible landholding farmer families, subject to land-record verification and scheme exclusions.",
+    "eligibility_summary": "Landholding farmer families with cultivable land, subject to exclusion criteria and verification.",
+    "benefits": "₹6,000 per eligible family per year in three equal instalments through direct benefit transfer.",
+    "eligibility": [
+      "Family comprises husband, wife and minor children.",
+      "Cultivable landholding must be recorded in the family’s name, subject to scheme rules.",
+      "Institutional landholders and specified higher-income categories are excluded, including income-tax payers and specified public office holders, government employees, pensioners and practising professionals; exceptions apply as specified in the official FAQ."
+    ],
+    "documents": [
+      "Aadhaar identity details.",
+      "Bank account number and IFSC details.",
+      "Cultivable-land ownership records for State/UT verification."
+    ],
+    "application_steps": [
+      "Check current instructions on the official PM-KISAN portal.",
+      "Use the New Farmer Registration route or seek assistance from the designated local authority/CSC, where available.",
+      "Provide the requested identity, landholding and bank details; complete required e-KYC and verification. Registration does not guarantee approval or payment."
+    ],
+    "official_url": "https://pmkisan.gov.in/RegistrationFormupdated.aspx",
+    "source": "https://pmkisan.gov.in/Documents/RevisedFAQ.pdf",
+    "last_verified": "2026-11-04",
+    "verification_status": "verified",
+    "eligibility_rules": {
+      "exclusions": "income-tax payers and specified public-office/employee/professional categories excluded per official FAQ",
+      "occupation": "landholding farmer family",
+      "landholding_required": true
+    },
+    "data_quality_notes": "Eligibility, exclusions, documents and application process verified against the official PM-KISAN FAQ. No fixed income limit applies; exclusion-based.",
+    "record_type": "scheme",
+    "related_links": []
+  },
+  {
+    "id": "karnataka-shakti",
+    "name": "Shakti Scheme",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Transport",
+    "beneficiary": "Women and gender minorities",
+    "description": "Free travel for eligible Karnataka-resident women and gender minorities on specified state road transport services within Karnataka.",
+    "eligibility_summary": "Karnataka residence and valid photo identity proof; only covered bus services and routes qualify.",
+    "benefits": "Free travel on eligible ordinary and express services within Karnataka. Luxury buses, passes and chartered/package services are excluded; inter-state exceptions must be confirmed with the operator.",
+    "eligibility": [
+      "Be a Karnataka-resident woman or covered gender-minority beneficiary; girls aged six and above are included by the official source.",
+      "Carry valid photo identity proof while travelling.",
+      "Use an eligible ordinary/express service within Karnataka; luxury services and excluded passes/packages do not qualify."
+    ],
+    "documents": [
+      "Any one accepted original photo identity document or its DigiLocker version, such as Aadhaar, voter ID, driving licence or passport, as specified by the operator."
+    ],
+    "application_steps": [
+      "Check that the bus service and journey qualify for Shakti.",
+      "Present an accepted valid identity document during travel; follow the transport operator’s ticketing requirements."
+    ],
+    "official_url": null,
+    "source": "https://bengaluruurban.nic.in/en/scheme/shakti-scheme/",
+    "last_verified": "2026-11-04",
+    "verification_status": "verified",
+    "eligibility_rules": {
+      "gender": [
+        "women",
+        "gender minorities"
+      ],
+      "age_min": 6,
+      "residence_state": "Karnataka",
+      "photo_identity_required": true
+    },
+    "data_quality_notes": "Eligibility, identity-document requirement and service exclusions verified against the official district NIC page. No online application URL exists; benefit is used during travel.",
+    "record_type": "scheme",
+    "related_links": []
+  },
+  {
+    "id": "karnataka-vidyasiri",
+    "name": "Vidyasiri — Food and Accommodation Scholarship Scheme",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Education",
+    "beneficiary": "Backward Classes post-matric students",
+    "description": "Boarding and lodging assistance for eligible Backward Classes students studying post-matric courses who are not admitted to covered government or aided hostel/residential facilities.",
+    "eligibility_summary": "Backward Classes post-matric students not admitted to Government/Government-aided hostels or departmental residential colleges; other current conditions must be confirmed.",
+    "benefits": "Boarding and lodging assistance for eligible students. The current amount and academic-year application window were not verified and are intentionally not stated.",
+    "eligibility": [
+      "Belong to the eligible Backward Classes student group.",
+      "Be studying a post-matric course.",
+      "Not be admitted to a Government or Government-aided hostel or a residential college of any department, as described by the official welfare directory.",
+      "Meet any additional current academic-year eligibility and selection rules published by the Backward Classes Welfare Department."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Check the Backward Classes Welfare Department’s current Vidyasiri notification for eligibility, documents, application channel and dates.",
+      "Follow the currently notified process through the department or your institution; no open application window is implied."
+    ],
+    "official_url": null,
+    "source": "https://chamrajnagar.nic.in/en/welfareschemes/",
+    "last_verified": "2026-11-04",
+    "verification_status": "partially_verified",
+    "eligibility_rules": {
+      "category": [
+        "Backward Classes"
+      ],
+      "education": "post-matric student",
+      "residence_state": "Karnataka",
+      "not_in_government_or_aided_hostel": true
+    },
+    "data_quality_notes": "Student group, post-matric requirement and hostel exclusion verified via official district welfare directory. Current benefit amount, document list and application window unverified.",
+    "record_type": "scheme",
+    "related_links": []
+  },
+  {
+    "id": "karnataka-yuva-nidhi",
+    "name": "Yuva Nidhi",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Employment",
+    "beneficiary": "Unemployed graduates and diploma holders",
+    "description": "Financial assistance for eligible unemployed graduates and diploma holders in Karnataka. Current graduating-cohort eligibility and intake availability must be confirmed from the latest notification.",
+    "eligibility_summary": "Eligible unemployed graduates and diploma holders in Karnataka, subject to the current cohort, unemployment and other notified conditions.",
+    "benefits": "The official district source describes monthly support of ₹3,000 for eligible unemployed graduates and ₹1,500 for eligible unemployed diploma holders. Confirm current eligibility, duration and payment conditions before applying.",
+    "eligibility": [
+      "Be an eligible unemployed graduate or diploma holder in Karnataka.",
+      "Meet the current notified graduating-cohort and other eligibility conditions; an older cohort description must not be treated as universal current eligibility."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Check the latest Yuva Nidhi notification and application availability on the official Seva Sindhu portal or with the District Skill Development Office.",
+      "If eligible and intake is open, follow the notified registration and verification process."
+    ],
+    "official_url": "https://sevasindhugs.karnataka.gov.in/",
+    "source": "https://bangalorerural.nic.in/en/district-skill-development-office-2/",
+    "last_verified": "2026-11-04",
+    "verification_status": "partially_verified",
+    "eligibility_rules": {
+      "education": [
+        "graduate",
+        "diploma holder"
+      ],
+      "residence_state": "Karnataka",
+      "employment_status": "unemployed"
+    },
+    "data_quality_notes": "Benefit amounts and broad eligibility verified via official district Skill Development page. Current graduating-cohort conditions, document list and intake availability unverified.",
+    "record_type": "scheme",
+    "related_links": []
+  }
+]

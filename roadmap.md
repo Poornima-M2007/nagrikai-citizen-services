@@ -1,4 +1,7 @@
 # Scheme data audit and eligibility-matching preparation
+- [x] Audit website navigation and current scheme URLs; fix verified connectivity issues without changing design or protected features.
+- [x] Add official SSP and NSP portal listings without duplicating existing schemes; retain IDs and distinguish information, application and status destinations.
+- [x] Test navigation, search, detail links and signed-in save/unsave; report counts, classifications and unavailable destinations.
 - [x] Audit all 10 existing scheme records against their official sources.
 - [x] Classify each record as verified / partially verified / unverified (3 / 7 / 0).
 - [x] Extend the existing schemes table with verification status, structured eligibility rules and data-quality notes (no duplicate tables, no deletions).

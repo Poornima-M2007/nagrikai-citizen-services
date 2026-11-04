@@ -18,6 +18,11 @@ describe("scheme filters", () => {
     expect(filterDbSchemes(schemes, { ...none, state: "Karnataka" }).map((s) => s.id)).toEqual(["b"]);
     expect(filterDbSchemes(schemes, { ...none, category: "Agriculture", beneficiary: "Students" })).toEqual([]);
   });
+  it("searches category, beneficiary and state keywords", () => {
+    expect(filterDbSchemes(schemes, { ...none, q: "education" }).map((s) => s.id)).toEqual(["b"]);
+    expect(filterDbSchemes(schemes, { ...none, q: "students" }).map((s) => s.id)).toEqual(["b"]);
+    expect(filterDbSchemes(schemes, { ...none, q: "karnataka" }).map((s) => s.id)).toEqual(["b"]);
+  });
 });
 
 describe("update filters", () => {
