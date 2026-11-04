@@ -169,6 +169,7 @@ export type Database = {
           category: string
           created_at: string
           id: string
+          last_verified: string | null
           official_url: string | null
           published_on: string
           source: string
@@ -181,6 +182,7 @@ export type Database = {
           category: string
           created_at?: string
           id?: string
+          last_verified?: string | null
           official_url?: string | null
           published_on: string
           source: string
@@ -193,6 +195,7 @@ export type Database = {
           category?: string
           created_at?: string
           id?: string
+          last_verified?: string | null
           official_url?: string | null
           published_on?: string
           source?: string
@@ -253,6 +256,7 @@ export type Database = {
       }
       schemes: {
         Row: {
+          application_steps: string[]
           beneficiary: string
           benefits: string | null
           category: string
@@ -271,6 +275,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          application_steps?: string[]
           beneficiary: string
           benefits?: string | null
           category: string
@@ -289,6 +294,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          application_steps?: string[]
           beneficiary?: string
           benefits?: string | null
           category?: string
