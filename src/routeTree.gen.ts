@@ -10,12 +10,48 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AuthRouteImport } from './routes/auth'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as UpdatesRouteImport } from './routes/updates'
+import { Route as VoiceRouteImport } from './routes/voice'
 import { Route as SchemesIndexRouteImport } from './routes/schemes.index'
 import { Route as SchemesSchemeIdRouteImport } from './routes/schemes.$schemeId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthRoute = AuthRouteImport.update({
+  id: '/auth',
+  path: '/auth',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DocumentsRoute = DocumentsRouteImport.update({
+  id: '/documents',
+  path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const UpdatesRoute = UpdatesRouteImport.update({
+  id: '/updates',
+  path: '/updates',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const VoiceRoute = VoiceRouteImport.update({
+  id: '/voice',
+  path: '/voice',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SchemesIndexRoute = SchemesIndexRouteImport.update({
@@ -31,30 +67,82 @@ const SchemesSchemeIdRoute = SchemesSchemeIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof DashboardRoute
+  '/documents': typeof DocumentsRoute
+  '/updates': typeof UpdatesRoute
+  '/voice': typeof VoiceRoute
   '/schemes/$schemeId': typeof SchemesSchemeIdRoute
   '/schemes/': typeof SchemesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof DashboardRoute
+  '/documents': typeof DocumentsRoute
+  '/updates': typeof UpdatesRoute
+  '/voice': typeof VoiceRoute
   '/schemes/$schemeId': typeof SchemesSchemeIdRoute
   '/schemes': typeof SchemesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/auth': typeof AuthRoute
+  '/dashboard': typeof DashboardRoute
+  '/documents': typeof DocumentsRoute
+  '/updates': typeof UpdatesRoute
+  '/voice': typeof VoiceRoute
   '/schemes/$schemeId': typeof SchemesSchemeIdRoute
   '/schemes/': typeof SchemesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/schemes/$schemeId' | '/schemes/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/dashboard'
+    | '/documents'
+    | '/updates'
+    | '/voice'
+    | '/schemes/$schemeId'
+    | '/schemes/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/schemes/$schemeId' | '/schemes'
-  id: '__root__' | '/' | '/schemes/$schemeId' | '/schemes/'
+  to:
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/dashboard'
+    | '/documents'
+    | '/updates'
+    | '/voice'
+    | '/schemes/$schemeId'
+    | '/schemes'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/auth'
+    | '/dashboard'
+    | '/documents'
+    | '/updates'
+    | '/voice'
+    | '/schemes/$schemeId'
+    | '/schemes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AuthRoute: typeof AuthRoute
+  DashboardRoute: typeof DashboardRoute
+  DocumentsRoute: typeof DocumentsRoute
+  UpdatesRoute: typeof UpdatesRoute
+  VoiceRoute: typeof VoiceRoute
   SchemesSchemeIdRoute: typeof SchemesSchemeIdRoute
   SchemesIndexRoute: typeof SchemesIndexRoute
 }
@@ -66,6 +154,48 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/auth': {
+      id: '/auth'
+      path: '/auth'
+      fullPath: '/auth'
+      preLoaderRoute: typeof AuthRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/documents': {
+      id: '/documents'
+      path: '/documents'
+      fullPath: '/documents'
+      preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/updates': {
+      id: '/updates'
+      path: '/updates'
+      fullPath: '/updates'
+      preLoaderRoute: typeof UpdatesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/voice': {
+      id: '/voice'
+      path: '/voice'
+      fullPath: '/voice'
+      preLoaderRoute: typeof VoiceRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/schemes/': {
@@ -87,6 +217,12 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AuthRoute: AuthRoute,
+  DashboardRoute: DashboardRoute,
+  DocumentsRoute: DocumentsRoute,
+  UpdatesRoute: UpdatesRoute,
+  VoiceRoute: VoiceRoute,
   SchemesSchemeIdRoute: SchemesSchemeIdRoute,
   SchemesIndexRoute: SchemesIndexRoute,
 }

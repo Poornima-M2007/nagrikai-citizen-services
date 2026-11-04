@@ -8,3 +8,8 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+## Architecture rules
+- UI strings for shared chrome/home live in `src/i18n/translations.ts`; every language dictionary is typed against English so missing keys fail typecheck.
+- Placeholder content lives only in `src/data/sample-data.ts`, flagged `isSample`, with null official URLs — never present it as real government data.
+- AI processing must run server-side (createServerFn); the browser never holds AI keys.
