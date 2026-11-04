@@ -26,7 +26,7 @@ Verification date: **4 November 2026 (UTC)**.
 - Search tested with every inserted scheme name: passed.
 - Central and State filters return 5 records each; Karnataka returns 5.
 - Every populated category filter returns the expected records.
-- All 10 detail pages show the expected name, verification date and application link.
+- All 10 detail pages show the expected name and verification date; the six verified application URLs match, while four retain the pending-link state.
 - Signed-in save persisted after page reload; the saved name appeared on the dashboard.
 - Removal from the dashboard and removal from the detail page both persisted. Test saves were removed.
 - Government Updates remains empty with its proper empty state; no announcements inserted.
