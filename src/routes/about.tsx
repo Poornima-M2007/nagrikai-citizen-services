@@ -10,6 +10,8 @@ export const Route = createFileRoute("/about")({
       { name: "description", content: "Why NagrikAI exists: making government services understandable for every Indian citizen." },
       { property: "og:title", content: "About NagrikAI" },
       { property: "og:description", content: "Our mission to simplify government services for every citizen." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: About,

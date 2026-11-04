@@ -11,6 +11,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Discover government schemes, simplify official documents and get answers in your language with NagrikAI." },
       { property: "og:title", content: "NagrikAI — Government Services, Simplified" },
       { property: "og:description", content: "AI-powered multilingual citizen assistance for India." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,

@@ -14,6 +14,8 @@ export const Route = createFileRoute("/updates")({
       { name: "description", content: "Government announcements and important notifications with official source links." },
       { property: "og:title", content: "Government Updates — NagrikAI" },
       { property: "og:description", content: "Stay informed with official government announcements." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Updates,

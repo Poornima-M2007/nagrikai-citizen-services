@@ -16,6 +16,8 @@ export const Route = createFileRoute("/auth")({
       { name: "description", content: "Sign in to NagrikAI to save schemes and documents." },
       { property: "og:title", content: "Login or Sign Up — NagrikAI" },
       { property: "og:description", content: "Access your NagrikAI dashboard." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Auth,
