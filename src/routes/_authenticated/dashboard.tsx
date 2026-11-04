@@ -7,8 +7,8 @@ import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { EmptyState, Notice, SampleBadge } from "@/components/common";
-import { SAMPLE_SCHEMES } from "@/data/sample-data";
+import { EmptyState, Notice } from "@/components/common";
+import { schemesQuery } from "@/lib/gov-data";
 import { useSavedSchemes } from "@/lib/saved-schemes";
 import { useAuth, useSignOut } from "@/lib/auth";
 import { supabase } from "@/integrations/supabase/client";
@@ -95,7 +95,8 @@ function Dashboard() {
   const { user } = useAuth();
   const signOut = useSignOut();
   const { ids, toggle, loading: savedLoading, error: savedError } = useSavedSchemes();
-  const saved = ids.map((id) => SAMPLE_SCHEMES.find((s) => s.id === id)).filter((s): s is (typeof SAMPLE_SCHEMES)[number] => !!s);
+  const allSchemes = useQuery(schemesQuery);
+  const saved = ids.map((id) => allSchemes.data?.find((s) => s.id === id) ?? { id, name: id });
 
   const docs = useQuery({
     queryKey: ["documents", user?.id],
@@ -144,13 +145,13 @@ function Dashboard() {
           )}
         </Panel>
         <Panel icon={Bookmark} title="Saved schemes">
-          {savedLoading ? <Loading /> : savedError ? <Failed msg={savedError.message} /> : saved.length === 0 ? (
+          {savedLoading || allSchemes.isLoading ? <Loading /> : savedError ? <Failed msg={savedError.message} /> : saved.length === 0 ? (
             <EmptyState icon={Bookmark} title="Nothing saved" description="Save schemes from their detail page to find them here." action={<Button asChild variant="soft"><Link to="/schemes">Explore schemes</Link></Button>} />
           ) : (
             <ul className="space-y-2">
               {saved.map((s) => (
                 <li key={s.id} className="flex items-center justify-between gap-3 rounded-xl border p-3">
-                  <div className="min-w-0"><Link to="/schemes/$schemeId" params={{ schemeId: s.id }} className="block truncate font-medium hover:text-accent">{s.name}</Link><SampleBadge /></div>
+                  <div className="min-w-0"><Link to="/schemes/$schemeId" params={{ schemeId: s.id }} className="block truncate font-medium hover:text-accent">{s.name}</Link></div>
                   <Button variant="ghost" size="sm" onClick={() => toggle(s.id).catch((e: Error) => toast.error(e.message))}>Remove</Button>
                 </li>
               ))}
