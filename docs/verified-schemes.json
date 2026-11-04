@@ -133,5 +133,122 @@
     "official_url": "https://scholarships.gov.in/",
     "source": "https://www.pib.gov.in/PressNoteDetails.aspx?ModuleId=3&NoteId=153359",
     "last_verified": "2026-11-04"
+  },
+  {
+    "id": "karnataka-shakti",
+    "name": "Shakti Scheme",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Transport",
+    "beneficiary": "Women and gender minorities",
+    "description": "Free travel for eligible Karnataka-resident women and gender minorities on specified state road transport services within Karnataka.",
+    "eligibility_summary": "Karnataka residence and valid photo identity proof; only covered bus services and routes qualify.",
+    "benefits": "Free travel on eligible ordinary and express services within Karnataka. Luxury buses, passes and chartered/package services are excluded; inter-state exceptions must be confirmed with the operator.",
+    "eligibility": [
+      "Be a Karnataka-resident woman or covered gender-minority beneficiary; girls aged six and above are included by the official source.",
+      "Carry valid photo identity proof while travelling.",
+      "Use an eligible ordinary/express service within Karnataka; luxury services and excluded passes/packages do not qualify."
+    ],
+    "documents": [
+      "Any one accepted original photo identity document or its DigiLocker version, such as Aadhaar, voter ID, driving licence or passport, as specified by the operator."
+    ],
+    "application_steps": [
+      "Check that the bus service and journey qualify for Shakti.",
+      "Present an accepted valid identity document during travel; follow the transport operator’s ticketing requirements."
+    ],
+    "official_url": null,
+    "source": "https://bengaluruurban.nic.in/en/scheme/shakti-scheme/",
+    "last_verified": "2026-11-04"
+  },
+  {
+    "id": "karnataka-anna-bhagya",
+    "name": "Anna Bhagya",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Food Security",
+    "beneficiary": "Low-income ration-card households",
+    "description": "Karnataka food-security support for eligible priority and Antyodaya ration-card households through the public distribution system.",
+    "eligibility_summary": "Eligible BPL/PHH or AAY ration-card households, subject to Food Department verification and current distribution rules.",
+    "benefits": "Food-security support through the public distribution system. Official sources describe changed rice and supplemental-food arrangements; confirm the current allocation with the Food Department. No current cash amount or exact statewide top-up entitlement is verified here.",
+    "eligibility": [
+      "Hold an eligible BPL/PHH or Antyodaya Anna Yojana ration card.",
+      "Benefit allocation and identity requirements remain subject to current Food Department rules."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Contact the local fair-price shop or Food Department to confirm the current Anna Bhagya entitlement linked to your ration card.",
+      "For ration-card or eligibility issues, use the Food Department’s officially notified service channels."
+    ],
+    "official_url": null,
+    "source": "https://chikkamagaluru.nic.in/en/food-civil-supplies-and-consumer-affairs-department/",
+    "last_verified": "2026-11-04"
+  },
+  {
+    "id": "karnataka-yuva-nidhi",
+    "name": "Yuva Nidhi",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Employment",
+    "beneficiary": "Unemployed graduates and diploma holders",
+    "description": "Financial assistance for eligible unemployed graduates and diploma holders in Karnataka. Current graduating-cohort eligibility and intake availability must be confirmed from the latest notification.",
+    "eligibility_summary": "Eligible unemployed graduates and diploma holders in Karnataka, subject to the current cohort, unemployment and other notified conditions.",
+    "benefits": "The official district source describes monthly support of ₹3,000 for eligible unemployed graduates and ₹1,500 for eligible unemployed diploma holders. Confirm current eligibility, duration and payment conditions before applying.",
+    "eligibility": [
+      "Be an eligible unemployed graduate or diploma holder in Karnataka.",
+      "Meet the current notified graduating-cohort and other eligibility conditions; an older cohort description must not be treated as universal current eligibility."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Check the latest Yuva Nidhi notification and application availability on the official Seva Sindhu portal or with the District Skill Development Office.",
+      "If eligible and intake is open, follow the notified registration and verification process."
+    ],
+    "official_url": "https://sevasindhugs.karnataka.gov.in/",
+    "source": "https://bangalorerural.nic.in/en/district-skill-development-office-2/",
+    "last_verified": "2026-11-04"
+  },
+  {
+    "id": "karnataka-gruha-lakshmi",
+    "name": "Gruha Lakshmi Yojana",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Women Welfare",
+    "beneficiary": "Eligible women heads of households",
+    "description": "Karnataka direct-benefit support for eligible women heads of households. Detailed qualifying and exclusion rules must be confirmed with the Women and Child Development Department.",
+    "eligibility_summary": "Eligible female heads of Karnataka households; the full current eligibility and exclusion checklist was not verified.",
+    "benefits": "The official district welfare directory describes ₹2,000 per month through direct bank transfer to eligible women heads of households. Payment and eligibility remain subject to department rules.",
+    "eligibility": [],
+    "documents": [],
+    "application_steps": [
+      "Check the current Gruha Lakshmi eligibility rules and intake availability with the Women and Child Development Department or its official service channel.",
+      "Apply only through a currently notified official channel and complete the requested verification; submitting an application does not guarantee approval."
+    ],
+    "official_url": null,
+    "source": "https://chamrajnagar.nic.in/en/welfareschemes/",
+    "last_verified": "2026-11-04"
+  },
+  {
+    "id": "karnataka-vidyasiri",
+    "name": "Vidyasiri — Food and Accommodation Scholarship Scheme",
+    "level": "State",
+    "state": "Karnataka",
+    "category": "Education",
+    "beneficiary": "Backward Classes post-matric students",
+    "description": "Boarding and lodging assistance for eligible Backward Classes students studying post-matric courses who are not admitted to covered government or aided hostel/residential facilities.",
+    "eligibility_summary": "Backward Classes post-matric students not admitted to Government/Government-aided hostels or departmental residential colleges; other current conditions must be confirmed.",
+    "benefits": "Boarding and lodging assistance for eligible students. The current amount and academic-year application window were not verified and are intentionally not stated.",
+    "eligibility": [
+      "Belong to the eligible Backward Classes student group.",
+      "Be studying a post-matric course.",
+      "Not be admitted to a Government or Government-aided hostel or a residential college of any department, as described by the official welfare directory.",
+      "Meet any additional current academic-year eligibility and selection rules published by the Backward Classes Welfare Department."
+    ],
+    "documents": [],
+    "application_steps": [
+      "Check the Backward Classes Welfare Department’s current Vidyasiri notification for eligibility, documents, application channel and dates.",
+      "Follow the currently notified process through the department or your institution; no open application window is implied."
+    ],
+    "official_url": null,
+    "source": "https://chamrajnagar.nic.in/en/welfareschemes/",
+    "last_verified": "2026-11-04"
   }
 ]
