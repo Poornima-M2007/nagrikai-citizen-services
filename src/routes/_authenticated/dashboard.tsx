@@ -98,7 +98,7 @@ function Dashboard() {
   const signOut = useSignOut();
   const { ids, toggle, loading: savedLoading, error: savedError } = useSavedSchemes();
   const allSchemes = useQuery(schemesQuery);
-  const saved = ids.map((id) => allSchemes.data?.find((s) => s.id === id) ?? { id, name: id });
+  const saved = ids.map((id) => ({ id, scheme: allSchemes.data?.find((s) => s.id === id) }));
 
   const docs = useQuery({
     queryKey: ["documents", user?.id],
@@ -153,7 +153,7 @@ function Dashboard() {
             <ul className="space-y-2">
               {saved.map((s) => (
                 <li key={s.id} className="flex items-center justify-between gap-3 rounded-xl border p-3">
-                  <div className="min-w-0"><Link to="/schemes/$schemeId" params={{ schemeId: s.id }} className="block truncate font-medium hover:text-accent">{s.name}</Link></div>
+                  <div className="min-w-0">{s.scheme ? <Link to="/schemes/$schemeId" params={{ schemeId: s.id }} className="block truncate font-medium hover:text-accent">{s.scheme.name}</Link> : <span className="block text-sm text-muted-foreground">{allSchemes.error ? "Scheme information could not be loaded" : "This saved listing is no longer available"}</span>}</div>
                   <Button variant="ghost" size="sm" onClick={() => toggle(s.id).catch((e: Error) => toast.error(e.message))}>Remove</Button>
                 </li>
               ))}
