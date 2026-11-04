@@ -12,4 +12,6 @@
 ## Architecture rules
 - UI strings for shared chrome/home live in `src/i18n/translations.ts`; every language dictionary is typed against English so missing keys fail typecheck.
 - Placeholder content lives only in `src/data/sample-data.ts`, flagged `isSample`, with null official URLs — never present it as real government data.
+- Auth state comes from `AuthProvider`/`useAuth` in `src/lib/auth.tsx` (the only auth listener); signed-in pages live under `src/routes/_authenticated/`.
+- User data is read/written from the browser client under per-user RLS; uploaded files go to the private `documents` bucket at `<user_id>/<uuid>.<ext>` so storage policies can scope by folder.
 - AI processing must run server-side (createServerFn); the browser never holds AI keys.

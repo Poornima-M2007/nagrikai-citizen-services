@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useI18n } from "@/i18n/I18nProvider";
 import { LANGUAGES, type LangCode, type TKey } from "@/i18n/translations";
 import { Logo } from "./Logo";
+import { useAuth } from "@/lib/auth";
 
 export const NAV: { to: "/" | "/schemes" | "/documents" | "/voice" | "/updates" | "/about"; key: TKey }[] = [
   { to: "/", key: "nav.home" },
@@ -35,6 +36,13 @@ function LanguageSelect({ id }: { id: string }) {
   );
 }
 
+function AccountButton({ onDone, className }: { onDone?: () => void; className?: string }) {
+  const { t } = useI18n();
+  const { user } = useAuth();
+  if (user) return <Button asChild variant="hero" className={className}><Link to="/dashboard" onClick={onDone}>{t("nav.dashboard")}</Link></Button>;
+  return <Button asChild variant="hero" className={className}><Link to="/auth" onClick={onDone}>{t("nav.login")}</Link></Button>;
+}
+
 export function SiteHeader() {
   const { t } = useI18n();
   const [open, setOpen] = useState(false);
@@ -55,7 +63,7 @@ export function SiteHeader() {
         </nav>
         <div className="hidden xl:flex items-center gap-2">
           <LanguageSelect id="lang-desktop" />
-          <Button asChild variant="hero"><Link to="/auth">{t("nav.login")}</Link></Button>
+          <AccountButton />
         </div>
         <Button variant="ghost" size="icon" className="xl:hidden" onClick={() => setOpen((o) => !o)} aria-expanded={open} aria-label="Toggle menu">
           {open ? <X /> : <Menu />}
@@ -71,7 +79,7 @@ export function SiteHeader() {
             ))}
             <div className="mt-3 flex flex-wrap items-center gap-2">
               <LanguageSelect id="lang-mobile" />
-              <Button asChild variant="hero" className="flex-1"><Link to="/auth" onClick={() => setOpen(false)}>{t("nav.login")}</Link></Button>
+              <AccountButton className="flex-1" onDone={() => setOpen(false)} />
             </div>
           </nav>
         </div>

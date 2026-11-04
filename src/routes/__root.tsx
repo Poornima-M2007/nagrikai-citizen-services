@@ -16,6 +16,7 @@ import { I18nProvider } from "@/i18n/I18nProvider";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { Toaster } from "@/components/ui/sonner";
+import { AuthProvider } from "@/lib/auth";
 
 function NotFoundComponent() {
   return (
@@ -126,6 +127,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <AuthProvider>
       <I18nProvider>
         <div className="flex min-h-screen flex-col">
           <SiteHeader />
@@ -136,6 +138,7 @@ function RootComponent() {
         </div>
         <Toaster />
       </I18nProvider>
+      </AuthProvider>
     </QueryClientProvider>
   );
 }

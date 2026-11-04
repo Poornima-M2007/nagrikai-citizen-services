@@ -10,18 +10,24 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as AuthRouteImport } from './routes/auth'
-import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as DocumentsRouteImport } from './routes/documents'
+import { Route as ResetPasswordRouteImport } from './routes/reset-password'
 import { Route as UpdatesRouteImport } from './routes/updates'
 import { Route as VoiceRouteImport } from './routes/voice'
+import { Route as AuthenticatedDashboardRouteImport } from './routes/_authenticated/dashboard'
 import { Route as SchemesIndexRouteImport } from './routes/schemes.index'
 import { Route as SchemesSchemeIdRouteImport } from './routes/schemes.$schemeId'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
+  id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -34,14 +40,14 @@ const AuthRoute = AuthRouteImport.update({
   path: '/auth',
   getParentRoute: () => rootRouteImport,
 } as any)
-const DashboardRoute = DashboardRouteImport.update({
-  id: '/dashboard',
-  path: '/dashboard',
-  getParentRoute: () => rootRouteImport,
-} as any)
 const DocumentsRoute = DocumentsRouteImport.update({
   id: '/documents',
   path: '/documents',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResetPasswordRoute = ResetPasswordRouteImport.update({
+  id: '/reset-password',
+  path: '/reset-password',
   getParentRoute: () => rootRouteImport,
 } as any)
 const UpdatesRoute = UpdatesRouteImport.update({
@@ -53,6 +59,11 @@ const VoiceRoute = VoiceRouteImport.update({
   id: '/voice',
   path: '/voice',
   getParentRoute: () => rootRouteImport,
+} as any)
+const AuthenticatedDashboardRoute = AuthenticatedDashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => AuthenticatedRouteRoute,
 } as any)
 const SchemesIndexRoute = SchemesIndexRouteImport.update({
   id: '/schemes/',
@@ -69,10 +80,11 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
-  '/dashboard': typeof DashboardRoute
   '/documents': typeof DocumentsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/updates': typeof UpdatesRoute
   '/voice': typeof VoiceRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/schemes/$schemeId': typeof SchemesSchemeIdRoute
   '/schemes/': typeof SchemesIndexRoute
 }
@@ -80,22 +92,25 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
-  '/dashboard': typeof DashboardRoute
   '/documents': typeof DocumentsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/updates': typeof UpdatesRoute
   '/voice': typeof VoiceRoute
+  '/dashboard': typeof AuthenticatedDashboardRoute
   '/schemes/$schemeId': typeof SchemesSchemeIdRoute
   '/schemes': typeof SchemesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/about': typeof AboutRoute
   '/auth': typeof AuthRoute
-  '/dashboard': typeof DashboardRoute
   '/documents': typeof DocumentsRoute
+  '/reset-password': typeof ResetPasswordRoute
   '/updates': typeof UpdatesRoute
   '/voice': typeof VoiceRoute
+  '/_authenticated/dashboard': typeof AuthenticatedDashboardRoute
   '/schemes/$schemeId': typeof SchemesSchemeIdRoute
   '/schemes/': typeof SchemesIndexRoute
 }
@@ -105,10 +120,11 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/auth'
-    | '/dashboard'
     | '/documents'
+    | '/reset-password'
     | '/updates'
     | '/voice'
+    | '/dashboard'
     | '/schemes/$schemeId'
     | '/schemes/'
   fileRoutesByTo: FileRoutesByTo
@@ -116,31 +132,35 @@ export interface FileRouteTypes {
     | '/'
     | '/about'
     | '/auth'
-    | '/dashboard'
     | '/documents'
+    | '/reset-password'
     | '/updates'
     | '/voice'
+    | '/dashboard'
     | '/schemes/$schemeId'
     | '/schemes'
   id:
     | '__root__'
     | '/'
+    | '/_authenticated'
     | '/about'
     | '/auth'
-    | '/dashboard'
     | '/documents'
+    | '/reset-password'
     | '/updates'
     | '/voice'
+    | '/_authenticated/dashboard'
     | '/schemes/$schemeId'
     | '/schemes/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AuthenticatedRouteRoute: typeof AuthenticatedRouteRouteWithChildren
   AboutRoute: typeof AboutRoute
   AuthRoute: typeof AuthRoute
-  DashboardRoute: typeof DashboardRoute
   DocumentsRoute: typeof DocumentsRoute
+  ResetPasswordRoute: typeof ResetPasswordRoute
   UpdatesRoute: typeof UpdatesRoute
   VoiceRoute: typeof VoiceRoute
   SchemesSchemeIdRoute: typeof SchemesSchemeIdRoute
@@ -154,6 +174,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated': {
+      id: '/_authenticated'
+      path: ''
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -170,18 +197,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/dashboard': {
-      id: '/dashboard'
-      path: '/dashboard'
-      fullPath: '/dashboard'
-      preLoaderRoute: typeof DashboardRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/documents': {
       id: '/documents'
       path: '/documents'
       fullPath: '/documents'
       preLoaderRoute: typeof DocumentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reset-password': {
+      id: '/reset-password'
+      path: '/reset-password'
+      fullPath: '/reset-password'
+      preLoaderRoute: typeof ResetPasswordRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/updates': {
@@ -197,6 +224,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/voice'
       preLoaderRoute: typeof VoiceRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/dashboard': {
+      id: '/_authenticated/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof AuthenticatedDashboardRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
     '/schemes/': {
       id: '/schemes/'
@@ -215,12 +249,24 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface AuthenticatedRouteRouteChildren {
+  AuthenticatedDashboardRoute: typeof AuthenticatedDashboardRoute
+}
+
+const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
+  AuthenticatedDashboardRoute: AuthenticatedDashboardRoute,
+}
+
+const AuthenticatedRouteRouteWithChildren =
+  AuthenticatedRouteRoute._addFileChildren(AuthenticatedRouteRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AuthenticatedRouteRoute: AuthenticatedRouteRouteWithChildren,
   AboutRoute: AboutRoute,
   AuthRoute: AuthRoute,
-  DashboardRoute: DashboardRoute,
   DocumentsRoute: DocumentsRoute,
+  ResetPasswordRoute: ResetPasswordRoute,
   UpdatesRoute: UpdatesRoute,
   VoiceRoute: VoiceRoute,
   SchemesSchemeIdRoute: SchemesSchemeIdRoute,
